@@ -5,7 +5,7 @@ namespace App\Repositories;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\NivelAcessoRepository;
-use App\Entities\NivelAcesso;
+use App\Models\NivelAcesso;
 use App\Validators\NivelAcessoValidator;
 
 /**

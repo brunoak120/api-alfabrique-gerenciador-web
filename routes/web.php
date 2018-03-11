@@ -12,21 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Redirect()->route('admin.index');
+});
+
+Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
+    Route::get('/', 'AdminController@index')->name('admin.index');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

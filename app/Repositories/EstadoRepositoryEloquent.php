@@ -5,7 +5,7 @@ namespace App\Repositories;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\EstadoRepository;
-use App\Entities\Estado;
+use App\Models\Estado;
 use App\Validators\EstadoValidator;
 
 /**

@@ -5,7 +5,7 @@ namespace App\Repositories;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\CidadeRepository;
-use App\Entities\Cidade;
+use App\Models\Cidade;
 use App\Validators\CidadeValidator;
 
 /**

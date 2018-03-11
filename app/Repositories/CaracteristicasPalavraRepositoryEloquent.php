@@ -5,7 +5,7 @@ namespace App\Repositories;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\CaracteristicasPalavraRepository;
-use App\Entities\CaracteristicasPalavra;
+use App\Models\CaracteristicasPalavra;
 use App\Validators\CaracteristicasPalavraValidator;
 
 /**

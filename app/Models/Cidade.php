@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Entities;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
 /**
- * Class Endereco.
+ * Class Cidade.
  *
  * @package namespace App\Entities;
  */
-class Endereco extends Model implements Transformable
+class Cidade extends Model implements Transformable
 {
     use TransformableTrait;
 

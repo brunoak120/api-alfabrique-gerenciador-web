@@ -5,7 +5,7 @@ namespace App\Repositories;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\CaracteristicaRepository;
-use App\Entities\Caracteristica;
+use App\Models\Caracteristica;
 use App\Validators\CaracteristicaValidator;
 
 /**

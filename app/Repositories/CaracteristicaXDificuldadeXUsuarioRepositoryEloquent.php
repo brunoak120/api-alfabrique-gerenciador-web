@@ -5,7 +5,7 @@ namespace App\Repositories;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\CaracteristicaXDificuldadeXUsuarioRepository;
-use App\Entities\CaracteristicaXDificuldadeXUsuario;
+use App\Models\CaracteristicaXDificuldadeXUsuario;
 use App\Validators\CaracteristicaXDificuldadeXUsuarioValidator;
 
 /**
