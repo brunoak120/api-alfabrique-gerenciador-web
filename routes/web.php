@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::get('/', 'AdminController@index')->name('admin.index');
+
+    Route::get('/palavras', 'PalavrasController@index')->name('palavras.index');
+    Route::get('/pesos', 'PesosController@index')->name('pesos.index');
+    Route::get('/estatisticas', 'EstatisticasController@index')->name('estatisticas.index');
 });
 
 Auth::routes();

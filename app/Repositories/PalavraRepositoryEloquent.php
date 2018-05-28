@@ -6,7 +6,6 @@ use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\PalavraRepository;
 use App\Models\Palavra;
-use App\Validators\PalavraValidator;
 
 /**
  * Class PalavraRepositoryEloquent.

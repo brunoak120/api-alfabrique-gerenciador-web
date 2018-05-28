@@ -181,6 +181,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
 
     ],
 
