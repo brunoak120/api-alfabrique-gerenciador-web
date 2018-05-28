@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Alfabrinque Administrador',
 
     'title_prefix' => '',
 
@@ -109,6 +109,11 @@ return [
 
     'menu' => [
         'Menu Principal',
+        [
+            'text' => 'Início',
+            'icon' => 'home',
+            'url'  => 'admin',
+        ],
         [
             'text' => 'Adicionar Palavras',
             'icon' => 'plus-square-o',
