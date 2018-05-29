@@ -20,6 +20,16 @@ class Palavra extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'categoria_id',
+        'nome',
+        'imagem'
+    ];
+
+
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class);
+    }
 
 }

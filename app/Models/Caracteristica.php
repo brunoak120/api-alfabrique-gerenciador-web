@@ -20,6 +20,8 @@ class Caracteristica extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'nome'
+    ];
 
 }

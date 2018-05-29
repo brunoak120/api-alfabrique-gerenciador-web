@@ -115,9 +115,20 @@ return [
             'url'  => 'admin',
         ],
         [
-            'text' => 'Adicionar Palavras',
-            'icon' => 'plus-square-o',
-            'url'  => 'admin/palavras',
+            'text' => 'Palavras',
+            'icon' => 'list-ol',
+            'submenu' => [
+                [
+                    'text' => 'Adicionar Palavras',
+                    'icon' => 'plus',
+                    'url'  => 'admin/palavras/adicionar',
+                ],
+                [
+                    'text' => 'Listar Palavras',
+                    'icon' => 'list',
+                    'url' => 'admin/palavras',
+                ]
+            ]
         ],
         [
             'text'    => 'Editar Pesos',

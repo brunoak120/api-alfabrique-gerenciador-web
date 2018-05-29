@@ -20,6 +20,9 @@ class CaracteristicasPalavra extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'palavra_id',
+        'caracteristica_id'
+    ];
 
 }

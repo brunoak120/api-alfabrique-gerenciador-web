@@ -20,6 +20,10 @@ class DificuldadeUsuario extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'caracteristica_id',
+        'dificuldade_id',
+        'usuario_id'
+    ];
 
 }

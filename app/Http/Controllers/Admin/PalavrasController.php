@@ -17,6 +17,18 @@ class PalavrasController extends Controller
 
     public function index()
     {
-        return view('admin.palavras.index');
+        $palavras = $this->palavraRepository->all();
+        return view('admin.palavras.index', compact('palavras'));
+    }
+
+    public function create()
+    {
+        return view('admin.palavras.create');
+    }
+
+    public function show(Request $request)
+    {
+        $palavra = $this->palavraRepository->find($request->id);
+        return view('admin.palavras.show', compact('palavra'));
     }
 }
