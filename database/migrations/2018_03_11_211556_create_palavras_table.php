@@ -22,7 +22,7 @@ class CreatePalavrasTable extends Migration
             $table->foreign('categoria_id')->references('id')->on('categorias');
 
             $table->string('nome');
-            $table->longText('imagem');
+            $table->longText('imagem')->nullable();
 
             $table->timestamps();
 		});
