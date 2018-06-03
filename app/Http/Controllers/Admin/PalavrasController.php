@@ -46,9 +46,10 @@ class PalavrasController extends Controller
     public function show($id)
     {
         $palavra = $this->palavraRepository->find($id);
+        $imagem = Storage::url($palavra->imagem);
         $categorias = $this->categoriaRepository->all();
 
-        return view('admin.palavras.show', compact('palavra', 'categorias'));
+        return view('admin.palavras.show', compact('palavra', 'categorias', 'imagem'));
     }
 
     public function update(Request $request, $id)
@@ -90,7 +91,7 @@ class PalavrasController extends Controller
 
             $nomeImagem = "{$nome}.{$extensao}";
 
-            $upload = $request->imagem_palavra->storeAs('storage/imagens-palavras', $nomeImagem);
+            $upload = $request->imagem_palavra->storeAs('public/imagens-palavras', $nomeImagem);
 
 
             if ( !$upload )
