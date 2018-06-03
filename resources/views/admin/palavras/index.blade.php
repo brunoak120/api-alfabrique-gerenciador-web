@@ -14,6 +14,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                        @include('admin.includes.alerts')
                         <table id="date_picker" class="table table-bordered table-hover">
                             <thead>
                             <tr>
@@ -27,12 +28,12 @@
                                 <tr>
                                     <td>{{ $palavra->categoria->nome }}</td>
                                     <td>{{ $palavra->nome }}</td>
-                                    <form action="" method="post">
+                                    <form action="{{route('palavras.destroy', $palavra->id)}}" method="post">
                                         <td>
                                             <a href="{{route('palavras.show', $palavra->id)}}" title="Editar Palavra" class="btn btn-warning glyphicon glyphicon-pencil"></a>
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger glyphicon glyphicon-remove " title="Excluir registro"></button>
+                                            <button type="submit" class="btn btn-danger glyphicon glyphicon-remove " title="Excluir Palavra"></button>
                                         </td>
                                     </form>
                                 </tr>
