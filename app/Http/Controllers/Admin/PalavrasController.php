@@ -6,7 +6,6 @@ use App\Repositories\CategoriaRepository;
 use App\Repositories\PalavraRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class PalavrasController extends Controller
 {
@@ -46,7 +45,6 @@ class PalavrasController extends Controller
     public function show($id)
     {
         $palavra = $this->palavraRepository->find($id);
-        $imagem = Storage::url($palavra->imagem);
         $categorias = $this->categoriaRepository->all();
 
         return view('admin.palavras.show', compact('palavra', 'categorias', 'imagem'));

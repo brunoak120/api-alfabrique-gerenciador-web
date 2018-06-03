@@ -38,9 +38,7 @@
                     <div class="form-group">
                         @if ($palavra->imagem != null)
                             <p>Imagem existente:</p>
-                            <img id="myImg"
-                                 src="{{asset($imagem)}}"
-                                 width="500"/><br></br>
+                            <img src="{{asset($palavra->imagem)}}" width="500"/><br></br>
                         @else
                             <p style="color: red">Nenhuma imagem inserida</p>
                         @endif
