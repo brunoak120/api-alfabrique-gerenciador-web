@@ -5,12 +5,12 @@
 @section('content')
 
     <section class="content">
-        <h3> Palavras </h3>
+        <h3> Categorias </h3>
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Listagem de Palavras</h3>
+                        <h3 class="box-title">Listagem de Categorias</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -18,22 +18,20 @@
                         <table id="date_picker" class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>Categoria</th>
                                 <th>Nome</th>
                                 <th>Ação</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($palavras as $palavra)
+                            @foreach ($categorias as $categoria)
                                 <tr>
-                                    <td>{{ $palavra->categoria->nome }}</td>
-                                    <td>{{ $palavra->nome }}</td>
-                                    <form action="{{route('palavras.destroy', $palavra->id)}}" method="post">
+                                    <td>{{ $categoria->nome }}</td>
+                                    <form action="{{route('categorias.destroy', $categoria->id)}}" method="post">
                                         <td>
-                                            <a href="{{route('palavras.show', $palavra->id)}}" title="Editar Palavra" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+                                            <a href="{{route('categorias.show', $categoria->id)}}" title="Editar Categoria" class="btn btn-warning glyphicon glyphicon-pencil"></a>
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger glyphicon glyphicon-remove " title="Excluir Palavra"></button>
+                                            <button type="submit" class="btn btn-danger glyphicon glyphicon-remove " title="Excluir Categoria"></button>
                                         </td>
                                     </form>
                                 </tr>

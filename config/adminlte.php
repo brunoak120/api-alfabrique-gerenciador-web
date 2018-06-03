@@ -116,7 +116,7 @@ return [
         ],
         [
             'text' => 'Palavras',
-            'icon' => 'list-ol',
+            'icon' => 'font',
             'submenu' => [
                 [
                     'text' => 'Adicionar Palavras',
@@ -127,6 +127,22 @@ return [
                     'text' => 'Listar Palavras',
                     'icon' => 'list',
                     'url' => 'admin/palavras',
+                ]
+            ]
+        ],
+        [
+            'text' => 'Categorias',
+            'icon' => 'list-ol',
+            'submenu' => [
+                [
+                    'text' => 'Adicionar Categorias',
+                    'icon' => 'plus',
+                    'url'  => 'admin/categorias/adicionar',
+                ],
+                [
+                    'text' => 'Listar Categorias',
+                    'icon' => 'list',
+                    'url' => 'admin/categorias',
                 ]
             ]
         ],
