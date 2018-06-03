@@ -52,7 +52,7 @@
                 <!-- /.box-body -->
 
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Adicionar</button>
+                    <button type="submit" class="btn btn-primary">Atualizar</button>
                 </div>
             </form>
         </div>
