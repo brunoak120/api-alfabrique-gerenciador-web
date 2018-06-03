@@ -53,7 +53,10 @@ class PalavrasController extends Controller
     public function update(Request $request, $id)
     {
         $upload = $this->adicionaImagem($request);
-        $request->request->add(['imagem' => $upload]);
+
+        if ($upload != null) {
+            $request->request->add(['imagem' => $upload]);
+        }
 
         $this->palavraRepository->update($request->all(), $id);
 
