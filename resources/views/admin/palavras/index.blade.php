@@ -28,14 +28,10 @@
                                 <tr>
                                     <td>{{ $palavra->categoria->nome }}</td>
                                     <td>{{ $palavra->nome }}</td>
-                                    <form action="{{route('palavras.destroy', $palavra->id)}}" method="post">
                                         <td>
                                             <a href="{{route('palavras.show', $palavra->id)}}" title="Editar Palavra" class="btn btn-warning glyphicon glyphicon-pencil"></a>
-                                            {{ method_field('DELETE') }}
-                                            {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger glyphicon glyphicon-remove " title="Excluir Palavra"></button>
+                                            <a data-id="{{$palavra->id}}" class="btn btn-danger glyphicon glyphicon-remove removePalavra" title="Excluir Palavra"></a>
                                         </td>
-                                    </form>
                                 </tr>
                             @endforeach
 

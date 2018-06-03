@@ -133,6 +133,10 @@
 @section('adminlte_js')
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     <script src="{{ asset('js/datepicker_config.js') }}"></script>
+    <script src="{{ asset('js/requisicao-ajax.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ asset('js/sweet-alert-categorias.js') }}"></script>
+    <script src="{{ asset('js/sweet-alert-palavras.js') }}"></script>
     @stack('js')
     @yield('js')
 @stop

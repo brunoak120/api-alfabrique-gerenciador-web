@@ -39,7 +39,7 @@
                         @if ($palavra->imagem != null)
                             <p>Imagem existente:</p>
                             <img id="myImg"
-                                 src="{{ url("{$palavra->imagem}") }}"
+                                 src="{{asset($palavra->imagem)}}"
                                  width="100"/><br></br>
                         @else
                             <p style="color: red">Nenhuma imagem inserida</p>

@@ -49,10 +49,19 @@ class CategoriasController extends Controller
         return redirect()->back()->with('sucess', 'Categoria atualizada com sucesso');
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $this->categoriaRepository->delete($id);
 
-        return redirect()->back()->with('success', 'Categoria removida com sucesso');
+        try {
+
+            $removido = $this->categoriaRepository->delete($request->id);
+
+            return response()->json($removido);
+        } catch (\Exception $e) {
+
+            echo $e->getMessage();
+
+            exit;
+        }
     }
 }

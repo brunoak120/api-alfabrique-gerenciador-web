@@ -6,6 +6,7 @@ use App\Repositories\CategoriaRepository;
 use App\Repositories\PalavraRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PalavrasController extends Controller
 {
@@ -59,11 +60,19 @@ class PalavrasController extends Controller
         return redirect()->back()->with('sucess', 'Palavra atualizada com sucesso');
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $this->palavraRepository->delete($id);
+        try {
 
-        return redirect()->back()->with('success', 'Palavra removida com sucesso');
+            $removido = $this->palavraRepository->delete($request->id);
+
+            return response()->json($removido);
+        } catch (\Exception $e) {
+
+            echo $e->getMessage();
+
+            exit;
+        }
     }
 
     public function adicionaImagem(Request $request)
@@ -80,6 +89,7 @@ class PalavrasController extends Controller
             $nomeImagem = "{$nome}.{$extensao}";
 
             $upload = $request->imagem_palavra->storeAs('storage/imagens-palavras', $nomeImagem);
+
 
             if ( !$upload )
             {

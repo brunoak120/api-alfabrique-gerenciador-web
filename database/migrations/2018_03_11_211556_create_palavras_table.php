@@ -19,7 +19,7 @@ class CreatePalavrasTable extends Migration
             $table->increments('id');
 
             $table->integer('categoria_id')->unsigned();
-            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
 
             $table->string('nome');
             $table->longText('imagem')->nullable();

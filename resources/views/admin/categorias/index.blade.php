@@ -26,14 +26,10 @@
                             @foreach ($categorias as $categoria)
                                 <tr>
                                     <td>{{ $categoria->nome }}</td>
-                                    <form action="{{route('categorias.destroy', $categoria->id)}}" method="post">
                                         <td>
                                             <a href="{{route('categorias.show', $categoria->id)}}" title="Editar Categoria" class="btn btn-warning glyphicon glyphicon-pencil"></a>
-                                            {{ method_field('DELETE') }}
-                                            {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger glyphicon glyphicon-remove " title="Excluir Categoria"></button>
+                                            <a data-id="{{$categoria->id}}" class="btn btn-danger glyphicon glyphicon-remove removeCategoria" title="Excluir Categoria"></a>
                                         </td>
-                                    </form>
                                 </tr>
                             @endforeach
 
