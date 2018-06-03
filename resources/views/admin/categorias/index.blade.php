@@ -14,7 +14,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        @include('admin.includes.alerts')
+                        @include('flash::message')
                         <table id="date_picker" class="table table-bordered table-hover">
                             <thead>
                             <tr>

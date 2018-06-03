@@ -39,7 +39,8 @@ class PalavrasController extends Controller
 
         $this->palavraRepository->create($request->all());
 
-        return redirect()->back()->with('sucess', 'Palavra inserida com sucesso');
+        flash('Palavra inserida com sucesso.')->success();
+        return redirect()->back();
     }
 
     public function show($id)
@@ -57,7 +58,8 @@ class PalavrasController extends Controller
 
         $this->palavraRepository->update($request->all(), $id);
 
-        return redirect()->back()->with('sucess', 'Palavra atualizada com sucesso');
+        flash('Palavra atualizada com sucesso.')->success();
+        return redirect()->back();
     }
 
     public function destroy(Request $request)

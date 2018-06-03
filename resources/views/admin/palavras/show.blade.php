@@ -16,7 +16,7 @@
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <div class="box-body">
-                    @include('admin.includes.alerts')
+                    @include('flash::message')
                     <div class="form-group">
                         <label for="nome">Palavra</label>
                         <input type="input" name="nome" id="nome"  class="form-control" placeholder="Nome da palavra" value="{{$palavra->nome}}">

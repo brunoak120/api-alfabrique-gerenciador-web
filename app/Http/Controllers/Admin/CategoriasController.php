@@ -39,14 +39,16 @@ class CategoriasController extends Controller
     {
         $this->categoriaRepository->create($request->all());
 
-        return redirect()->back()->with('sucess', 'Categoria inserida com sucesso');
+        flash('Categoria inserida com sucesso.')->success();
+        return redirect()->back();
     }
 
     public function update(Request $request, $id)
     {
         $this->categoriaRepository->update($request->all(), $id);
 
-        return redirect()->back()->with('sucess', 'Categoria atualizada com sucesso');
+        flash('Categoria atualizada com sucesso.')->success();
+        return redirect()->back();
     }
 
     public function destroy(Request $request)

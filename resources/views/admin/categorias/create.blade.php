@@ -15,7 +15,7 @@
             <form action="{{route('categorias.store')}}" method="post" role="form" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="box-body">
-                    @include('admin.includes.alerts')
+                    @include('flash::message')
                     <div class="form-group">
                         <label for="nome">Categoria</label>
                         <input type="input" name="nome" id="nome"  class="form-control" placeholder="Nome da categoria">
