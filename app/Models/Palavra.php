@@ -35,8 +35,13 @@ class Palavra extends Model implements Transformable
 
     public function getImagemAttribute()
     {
-        $imagem = Storage::url($this->attributes['imagem']);
-        return $imagem;
+
+        if ($this->attributes['imagem'] != null) {
+            $imagem = Storage::url($this->attributes['imagem']);
+            return $imagem;
+        }
+
+        return null;
     }
 
 }

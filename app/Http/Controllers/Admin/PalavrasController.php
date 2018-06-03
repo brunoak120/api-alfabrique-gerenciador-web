@@ -34,7 +34,10 @@ class PalavrasController extends Controller
     public function store(Request $request)
     {
         $upload = $this->adicionaImagem($request);
-        $request->request->add(['imagem' => $upload]);
+
+        if ($upload != null) {
+            $request->request->add(['imagem' => $upload]);
+        }
 
         $this->palavraRepository->create($request->all());
 
@@ -54,7 +57,7 @@ class PalavrasController extends Controller
     {
         $upload = $this->adicionaImagem($request);
 
-        if ($upload != null) {
+        if ($upload != null OR !empty($upload)) {
             $request->request->add(['imagem' => $upload]);
         }
 
