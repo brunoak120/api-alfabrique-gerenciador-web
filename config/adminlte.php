@@ -156,6 +156,39 @@ return [
             'icon' => 'pie-chart',
             'url'  => 'admin/estatisticas',
         ],
+        'Configurações Avançadas',
+        [
+            'text' => 'Palavras',
+            'icon' => 'font',
+            'submenu' => [
+                [
+                    'text' => 'Adicionar Características',
+                    'icon' => 'plus',
+                    'url'  => 'admin/caracteristicas/adicionar',
+                ],
+                [
+                    'text' => 'Listar Características',
+                    'icon' => 'list',
+                    'url' => 'admin/caracteristicas',
+                ]
+            ]
+        ],
+        [
+            'text' => 'Pesos',
+            'icon' => 'font',
+            'submenu' => [
+                [
+                    'text' => 'Adicionar Características',
+                    'icon' => 'plus',
+                    'url'  => 'admin/caracteristicas/adicionar',
+                ],
+                [
+                    'text' => 'Listar Características',
+                    'icon' => 'list',
+                    'url' => 'admin/caracteristicas',
+                ]
+            ]
+        ],
         'Configurações de Conta',
         [
             'text' => 'Perfil',
