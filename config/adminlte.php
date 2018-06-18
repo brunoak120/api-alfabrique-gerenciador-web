@@ -147,14 +147,42 @@ return [
             ]
         ],
         [
-            'text'    => 'Editar Pesos',
-            'icon' => 'edit',
-            'url'     => 'admin/pesos',
-        ],
-        [
             'text' => 'Estátisticas',
             'icon' => 'pie-chart',
             'url'  => 'admin/estatisticas',
+        ],
+        'Configurações Avançadas',
+        [
+            'text' => 'Características',
+            'icon' => 'font',
+            'submenu' => [
+                [
+                    'text' => 'Adicionar Características',
+                    'icon' => 'plus',
+                    'url'  => 'admin/caracteristicas/adicionar',
+                ],
+                [
+                    'text' => 'Listar Características',
+                    'icon' => 'list',
+                    'url' => 'admin/caracteristicas',
+                ]
+            ]
+        ],
+        [
+            'text' => 'Pesos',
+            'icon' => 'font',
+            'submenu' => [
+                [
+                    'text' => 'Adicionar Características',
+                    'icon' => 'plus',
+                    'url'  => 'admin/caracteristicas/adicionar',
+                ],
+                [
+                    'text' => 'Listar Características',
+                    'icon' => 'list',
+                    'url' => 'admin/caracteristicas',
+                ]
+            ]
         ],
         'Configurações de Conta',
         [

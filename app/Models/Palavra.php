@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class Palavra.
@@ -30,6 +31,17 @@ class Palavra extends Model implements Transformable
     public function categoria()
     {
         return $this->belongsTo(Categoria::class);
+    }
+
+    public function getImagemAttribute()
+    {
+
+        if ($this->attributes['imagem'] != null) {
+            $imagem = Storage::url($this->attributes['imagem']);
+            return $imagem;
+        }
+
+        return null;
     }
 
 }

@@ -34,11 +34,15 @@ class PalavrasController extends Controller
     public function store(Request $request)
     {
         $upload = $this->adicionaImagem($request);
-        $request->request->add(['imagem' => $upload]);
+
+        if ($upload != null) {
+            $request->request->add(['imagem' => $upload]);
+        }
 
         $this->palavraRepository->create($request->all());
 
-        return redirect()->back()->with('sucess', 'Palavra inserida com sucesso');
+        flash('Palavra inserida com sucesso.')->success();
+        return redirect()->back();
     }
 
     public function show($id)
@@ -46,24 +50,36 @@ class PalavrasController extends Controller
         $palavra = $this->palavraRepository->find($id);
         $categorias = $this->categoriaRepository->all();
 
-        return view('admin.palavras.show', compact('palavra', 'categorias'));
+        return view('admin.palavras.show', compact('palavra', 'categorias', 'imagem'));
     }
 
     public function update(Request $request, $id)
     {
         $upload = $this->adicionaImagem($request);
-        $request->request->add(['imagem' => $upload]);
+
+        if ($upload != null OR !empty($upload)) {
+            $request->request->add(['imagem' => $upload]);
+        }
 
         $this->palavraRepository->update($request->all(), $id);
 
-        return redirect()->back()->with('sucess', 'Palavra atualizada com sucesso');
+        flash('Palavra atualizada com sucesso.')->success();
+        return redirect()->back();
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $this->palavraRepository->delete($id);
+        try {
 
-        return redirect()->back()->with('success', 'Palavra removida com sucesso');
+            $removido = $this->palavraRepository->delete($request->id);
+
+            return response()->json($removido);
+        } catch (\Exception $e) {
+
+            echo $e->getMessage();
+
+            exit;
+        }
     }
 
     public function adicionaImagem(Request $request)
@@ -79,7 +95,8 @@ class PalavrasController extends Controller
 
             $nomeImagem = "{$nome}.{$extensao}";
 
-            $upload = $request->imagem_palavra->storeAs('storage/imagens-palavras', $nomeImagem);
+            $upload = $request->imagem_palavra->storeAs('public/imagens-palavras', $nomeImagem);
+
 
             if ( !$upload )
             {

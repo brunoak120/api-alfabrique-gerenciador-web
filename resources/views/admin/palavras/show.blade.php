@@ -16,7 +16,7 @@
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <div class="box-body">
-                    @include('admin.includes.alerts')
+                    @include('flash::message')
                     <div class="form-group">
                         <label for="nome">Palavra</label>
                         <input type="input" name="nome" id="nome"  class="form-control" placeholder="Nome da palavra" value="{{$palavra->nome}}">
@@ -38,9 +38,7 @@
                     <div class="form-group">
                         @if ($palavra->imagem != null)
                             <p>Imagem existente:</p>
-                            <img id="myImg"
-                                 src="{{ url("{$palavra->imagem}") }}"
-                                 width="100"/><br></br>
+                            <img src="{{asset($palavra->imagem)}}" width="500"/><br></br>
                         @else
                             <p style="color: red">Nenhuma imagem inserida</p>
                         @endif
