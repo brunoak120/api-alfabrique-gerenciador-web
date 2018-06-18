@@ -16,15 +16,11 @@ class CreateCaracteristicasPalavrasTable extends Migration
 	public function up()
 	{
 		Schema::create('caracteristicas_palavras', function(Blueprint $table) {
-            $table->increments('id');
-
             $table->integer('palavra_id')->unsigned();
             $table->foreign('palavra_id')->references('id')->on('palavras');
 
             $table->integer('caracteristica_id')->unsigned();
             $table->foreign('caracteristica_id')->references('id')->on('caracteristicas');
-
-            $table->timestamps();
 		});
 	}
 
