@@ -17,14 +17,14 @@ class CaracteristicaSeeder extends Seeder
             [
                 'id' => 1,
                 'nome' => 'Silabas',
-                'caractetistica' => 'silabas',
+                'caracteristica' => 'silabas',
                 'descricao' => 'Quantidade de Silabas',
                 "created_at" => $now,
                 "updated_at" => $now,
             ], [
                 'id' => 2,
                 'nome' => 'Letras',
-                'caractetistica' => 'letras',
+                'caracteristica' => 'letras',
                 'descricao' => 'Quantidade de Letras',
                 "created_at" => $now,
                 "updated_at" => $now,
