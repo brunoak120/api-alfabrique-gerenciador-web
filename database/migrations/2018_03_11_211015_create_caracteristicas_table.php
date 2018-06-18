@@ -19,8 +19,7 @@ class CreateCaracteristicasTable extends Migration
             $table->increments('id');
 
             $table->string('nome', 50);
-            $table->string('caracteristica', 50);
-            $table->text('descricao');
+            $table->text('descricao')->nullable();
 
             $table->timestamps();
 		});

@@ -16,16 +16,14 @@ class CaracteristicaSeeder extends Seeder
         DB::table('caracteristicas')->insert([
             [
                 'id' => 1,
-                'nome' => 'Silabas',
-                'caracteristica' => 'silabas',
-                'descricao' => 'Quantidade de Silabas',
+                'nome' => 'ç',
+                'descricao' => 'Palavras que possuem Ç',
                 "created_at" => $now,
                 "updated_at" => $now,
             ], [
                 'id' => 2,
-                'nome' => 'Letras',
-                'caracteristica' => 'letras',
-                'descricao' => 'Quantidade de Letras',
+                'nome' => 'á',
+                'descricao' => 'Palavras que possuem acento agudo no a',
                 "created_at" => $now,
                 "updated_at" => $now,
             ]

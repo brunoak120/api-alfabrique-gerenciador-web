@@ -147,18 +147,13 @@ return [
             ]
         ],
         [
-            'text'    => 'Editar Pesos',
-            'icon' => 'edit',
-            'url'     => 'admin/pesos',
-        ],
-        [
             'text' => 'Estátisticas',
             'icon' => 'pie-chart',
             'url'  => 'admin/estatisticas',
         ],
         'Configurações Avançadas',
         [
-            'text' => 'Palavras',
+            'text' => 'Características',
             'icon' => 'font',
             'submenu' => [
                 [
