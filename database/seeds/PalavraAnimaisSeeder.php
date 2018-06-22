@@ -46,8 +46,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Águia dourada',
-                'letras' => '13',
-                'silabas' => '1',
+                'letras' => '12',
+                'silabas' => '5',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -73,13 +73,6 @@ class PalavraAnimaisSeeder extends Seeder
                 'updated_at' => $now,
             ], [
                 'categoria_id' => 2,
-                'nome' => 'Antrax (bacilo do)',
-                'letras' => '18',
-                'silabas' => '1',
-                'created_at' => $now,
-                'updated_at' => $now,
-            ], [
-                'categoria_id' => 2,
                 'nome' => 'Aranha caranguejeira',
                 'letras' => '20',
                 'silabas' => '8',
@@ -88,8 +81,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Aranha marrom',
-                'letras' => '13',
-                'silabas' => '1',
+                'letras' => '12',
+                'silabas' => '5',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -130,8 +123,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Bacilo do tifo',
-                'letras' => '14',
-                'silabas' => '1',
+                'letras' => '12',
+                'silabas' => '6',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -158,15 +151,15 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Bem-te-vi',
-                'letras' => '9',
-                'silabas' => '1',
+                'letras' => '7',
+                'silabas' => '3',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Bicho-da-seda',
-                'letras' => '13',
-                'silabas' => '1',
+                'letras' => '11',
+                'silabas' => '5',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -388,9 +381,9 @@ class PalavraAnimaisSeeder extends Seeder
                 'updated_at' => $now,
             ], [
                 'categoria_id' => 2,
-                'nome' => 'Corvo (americano)',
-                'letras' => '17',
-                'silabas' => '1',
+                'nome' => 'Corvo',
+                'letras' => '5',
+                'silabas' => '2',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -417,8 +410,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Dragão de comodo',
-                'letras' => '16',
-                'silabas' => '1',
+                'letras' => '13',
+                'silabas' => '6',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -459,8 +452,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Galinha d\'Angola',
-                'letras' => '16',
-                'silabas' => '1',
+                'letras' => '14',
+                'silabas' => '6',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -501,8 +494,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Gato-do-mato',
-                'letras' => '12',
-                'silabas' => '1',
+                'letras' => '10',
+                'silabas' => '5',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -515,8 +508,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Gavião-quiriquiqui',
-                'letras' => '18',
-                'silabas' => '1',
+                'letras' => '16',
+                'silabas' => '7',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -545,20 +538,6 @@ class PalavraAnimaisSeeder extends Seeder
                 'nome' => 'Gralha',
                 'letras' => '6',
                 'silabas' => '2',
-                'created_at' => $now,
-                'updated_at' => $now,
-            ], [
-                'categoria_id' => 2,
-                'nome' => 'Guará (ave)',
-                'letras' => '11',
-                'silabas' => '1',
-                'created_at' => $now,
-                'updated_at' => $now,
-            ], [
-                'categoria_id' => 2,
-                'nome' => 'Guará (lobo)',
-                'letras' => '12',
-                'silabas' => '1',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -627,15 +606,15 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'João-de-Barro',
-                'letras' => '13',
-                'silabas' => '1',
+                'letras' => '10',
+                'silabas' => '5',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
                 'categoria_id' => 2,
-                'nome' => 'Jobóia',
+                'nome' => 'Jiboia',
                 'letras' => '6',
-                'silabas' => '1',
+                'silabas' => '3',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -668,9 +647,9 @@ class PalavraAnimaisSeeder extends Seeder
                 'updated_at' => $now,
             ], [
                 'categoria_id' => 2,
-                'nome' => 'Lebre (tapiti)',
-                'letras' => '14',
-                'silabas' => '1',
+                'nome' => 'Lebre',
+                'letras' => '5',
+                'silabas' => '2',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -691,7 +670,7 @@ class PalavraAnimaisSeeder extends Seeder
                 'categoria_id' => 2,
                 'nome' => 'Libellula',
                 'letras' => '9',
-                'silabas' => '1',
+                'silabas' => '4',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -746,8 +725,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Mico-amarelo',
-                'letras' => '12',
-                'silabas' => '1',
+                'letras' => '11',
+                'silabas' => '6',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -780,9 +759,9 @@ class PalavraAnimaisSeeder extends Seeder
                 'updated_at' => $now,
             ], [
                 'categoria_id' => 2,
-                'nome' => 'Namorado (peixe)',
-                'letras' => '16',
-                'silabas' => '1',
+                'nome' => 'Namorado',
+                'letras' => '8',
+                'silabas' => '4',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -802,8 +781,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Ostra japonesa',
-                'letras' => '14',
-                'silabas' => '1',
+                'letras' => '13',
+                'silabas' => '6',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -829,9 +808,9 @@ class PalavraAnimaisSeeder extends Seeder
                 'updated_at' => $now,
             ], [
                 'categoria_id' => 2,
-                'nome' => 'Panda Gigante (urso)',
-                'letras' => '20',
-                'silabas' => '1',
+                'nome' => 'Panda Gigante',
+                'letras' => '12',
+                'silabas' => '5',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -908,7 +887,7 @@ class PalavraAnimaisSeeder extends Seeder
                 'categoria_id' => 2,
                 'nome' => 'Pirarocu',
                 'letras' => '8',
-                'silabas' => '1',
+                'silabas' => '4',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -941,9 +920,9 @@ class PalavraAnimaisSeeder extends Seeder
                 'updated_at' => $now,
             ], [
                 'categoria_id' => 2,
-                'nome' => 'Protozoário (Chagas)',
-                'letras' => '20',
-                'silabas' => '1',
+                'nome' => 'Protozoário',
+                'letras' => '11',
+                'silabas' => '5',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -970,8 +949,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Quero-quero',
-                'letras' => '11',
-                'silabas' => '1',
+                'letras' => '10',
+                'silabas' => '4',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -1033,8 +1012,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Sapo cururu',
-                'letras' => '11',
-                'silabas' => '1',
+                'letras' => '10',
+                'silabas' => '5',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -1060,9 +1039,9 @@ class PalavraAnimaisSeeder extends Seeder
                 'updated_at' => $now,
             ], [
                 'categoria_id' => 2,
-                'nome' => 'Saúva (formiga)',
-                'letras' => '15',
-                'silabas' => '1',
+                'nome' => 'Saúva',
+                'letras' => '5',
+                'silabas' => '3',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -1082,8 +1061,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Tico-tico',
-                'letras' => '9',
-                'silabas' => '1',
+                'letras' => '8',
+                'silabas' => '4',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -1152,8 +1131,8 @@ class PalavraAnimaisSeeder extends Seeder
             ], [
                 'categoria_id' => 2,
                 'nome' => 'Urubu rei',
-                'letras' => '9',
-                'silabas' => '1',
+                'letras' => '8',
+                'silabas' => '4',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [

@@ -74,8 +74,8 @@ class PalavraAlimentosSeeder extends Seeder
             ], [
                 'categoria_id' => 1,
                 'nome' => 'Castanha de Caju',
-                'letras' => '16',
-                'silabas' => '1',
+                'letras' => '14',
+                'silabas' => '6',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -117,7 +117,7 @@ class PalavraAlimentosSeeder extends Seeder
                 'categoria_id' => 1,
                 'nome' => 'Ovos',
                 'letras' => '4',
-                'silabas' => '1',
+                'silabas' => '2',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -131,7 +131,7 @@ class PalavraAlimentosSeeder extends Seeder
                 'categoria_id' => 1,
                 'nome' => 'Cenouras',
                 'letras' => '8',
-                'silabas' => '1',
+                'silabas' => '3',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -159,7 +159,7 @@ class PalavraAlimentosSeeder extends Seeder
                 'categoria_id' => 1,
                 'nome' => 'Amêndoas',
                 'letras' => '8',
-                'silabas' => '1',
+                'silabas' => '3',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -194,7 +194,7 @@ class PalavraAlimentosSeeder extends Seeder
                 'categoria_id' => 1,
                 'nome' => 'Azeitonas',
                 'letras' => '9',
-                'silabas' => '1',
+                'silabas' => '4',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -473,8 +473,8 @@ class PalavraAlimentosSeeder extends Seeder
             ], [
                 'categoria_id' => 1,
                 'nome' => 'Batata Frita',
-                'letras' => '12',
-                'silabas' => '1',
+                'letras' => '11',
+                'silabas' => '5',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -586,7 +586,7 @@ class PalavraAlimentosSeeder extends Seeder
                 'categoria_id' => 1,
                 'nome' => 'Ervilhas',
                 'letras' => '8',
-                'silabas' => '1',
+                'silabas' => '3',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [

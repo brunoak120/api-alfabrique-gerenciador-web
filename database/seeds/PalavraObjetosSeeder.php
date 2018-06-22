@@ -67,7 +67,7 @@ class PalavraObjetosSeeder extends Seeder
                 'categoria_id' => 3,
                 'nome' => 'Abajour',
                 'letras' => '7',
-                'silabas' => '1',
+                'silabas' => '3',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -88,7 +88,7 @@ class PalavraObjetosSeeder extends Seeder
                 'categoria_id' => 3,
                 'nome' => 'Botas',
                 'letras' => '5',
-                'silabas' => '1',
+                'silabas' => '2',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -101,8 +101,8 @@ class PalavraObjetosSeeder extends Seeder
             ], [
                 'categoria_id' => 3,
                 'nome' => 'Borracha Escolar',
-                'letras' => '16',
-                'silabas' => '1',
+                'letras' => '15',
+                'silabas' => '6',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -431,7 +431,7 @@ class PalavraObjetosSeeder extends Seeder
                 'categoria_id' => 3,
                 'nome' => 'Jóias',
                 'letras' => '5',
-                'silabas' => '1',
+                'silabas' => '2',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -459,7 +459,7 @@ class PalavraObjetosSeeder extends Seeder
                 'categoria_id' => 3,
                 'nome' => 'Luvas',
                 'letras' => '5',
-                'silabas' => '1',
+                'silabas' => '2',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -577,8 +577,8 @@ class PalavraObjetosSeeder extends Seeder
             ], [
                 'categoria_id' => 3,
                 'nome' => 'Navio de Brinquedo',
-                'letras' => '18',
-                'silabas' => '1',
+                'letras' => '16',
+                'silabas' => '7',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -598,8 +598,8 @@ class PalavraObjetosSeeder extends Seeder
             ], [
                 'categoria_id' => 3,
                 'nome' => 'Óculos de Sol',
-                'letras' => '13',
-                'silabas' => '1',
+                'letras' => '11',
+                'silabas' => '5',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -626,15 +626,15 @@ class PalavraObjetosSeeder extends Seeder
             ], [
                 'categoria_id' => 3,
                 'nome' => 'Porta-Retrato',
-                'letras' => '13',
-                'silabas' => '1',
+                'letras' => '12',
+                'silabas' => '5',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
                 'categoria_id' => 3,
                 'nome' => 'Pen Drive',
-                'letras' => '9',
-                'silabas' => '1',
+                'letras' => '8',
+                'silabas' => '3',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -773,8 +773,8 @@ class PalavraObjetosSeeder extends Seeder
             ], [
                 'categoria_id' => 3,
                 'nome' => 'Saco de pancadas',
-                'letras' => '16',
-                'silabas' => '1',
+                'letras' => '14',
+                'silabas' => '6',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -788,7 +788,7 @@ class PalavraObjetosSeeder extends Seeder
                 'categoria_id' => 3,
                 'nome' => 'Shorts',
                 'letras' => '6',
-                'silabas' => '1',
+                'silabas' => '2',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -864,8 +864,8 @@ class PalavraObjetosSeeder extends Seeder
             ], [
                 'categoria_id' => 3,
                 'nome' => 'Ursinho de pelúcia',
-                'letras' => '18',
-                'silabas' => '1',
+                'letras' => '17',
+                'silabas' => '7',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -878,8 +878,8 @@ class PalavraObjetosSeeder extends Seeder
             ], [
                 'categoria_id' => 3,
                 'nome' => 'Umidificador de Ar',
-                'letras' => '18',
-                'silabas' => '1',
+                'letras' => '16',
+                'silabas' => '8',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
@@ -899,8 +899,8 @@ class PalavraObjetosSeeder extends Seeder
             ], [
                 'categoria_id' => 3,
                 'nome' => 'Vara de pescar',
-                'letras' => '14',
-                'silabas' => '1',
+                'letras' => '12',
+                'silabas' => '5',
                 'created_at' => $now,
                 'updated_at' => $now,
             ], [
