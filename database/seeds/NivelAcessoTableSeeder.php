@@ -12,9 +12,14 @@ class NivelAcessoTableSeeder extends Seeder
      */
     public function run()
     {
-        NivelAcesso::create([
-            'id' => '1',
-            'nome'     => 'Administrador',
+        DB::table('nivel_acessos')->insert([
+            [
+                'id' => '1',
+                'nome' => 'Administrador',
+            ], [
+                'id' => '2',
+                'nome' => 'Jogador',
+            ]
         ]);
     }
 }

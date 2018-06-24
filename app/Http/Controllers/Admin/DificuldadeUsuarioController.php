@@ -17,7 +17,9 @@ class DificuldadeUsuarioController extends Controller
 
     public function index()
     {
-        return view('admin.dificuldades_usuarios.index');
+        $dificuldadesUsuarios = $this->dificuldadeUsuarioRepository->all();
+
+        return view('admin.dificuldades_usuarios.index', compact('dificuldadesUsuarios'));
     }
 
     public function show($id)

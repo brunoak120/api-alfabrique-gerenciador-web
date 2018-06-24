@@ -12,14 +12,24 @@ class EnderecoTableSeeder extends Seeder
      */
     public function run()
     {
-        Endereco::create([
-            'id' => '1',
-            'cidade_id'     => '2701506',
-            'bairro'            => 'Santa Fé',
-            'tipo_local'           => 'Casa',
-            'logradouro'           => 'R. Eduardo Santos Pereira',
-            'numero'           => '2647',
-            'complemento'           => 'S/C'
+        DB::table('enderecos')->insert([
+            [
+                'id' => '1',
+                'cidade_id' => '2701506',
+                'bairro' => 'Santa Fé',
+                'tipo_local' => 'Casa',
+                'logradouro' => 'R. Eduardo Santos Pereira',
+                'numero' => '2647',
+                'complemento' => 'S/C'
+            ], [
+                'id' => '2',
+                'cidade_id' => '2701506',
+                'bairro' => 'Santa Fé',
+                'tipo_local' => 'Casa',
+                'logradouro' => 'R. Eduardo Santos Pereira',
+                'numero' => '2647',
+                'complemento' => 'S/C'
+            ]
         ]);
     }
 }
