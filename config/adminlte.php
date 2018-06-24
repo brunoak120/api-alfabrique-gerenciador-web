@@ -173,14 +173,14 @@ return [
             'icon' => 'font',
             'submenu' => [
                 [
-                    'text' => 'Adicionar Características',
+                    'text' => 'Adicionar Pesos',
                     'icon' => 'plus',
-                    'url'  => 'admin/caracteristicas/adicionar',
+                    'url'  => 'admin/pesos/adicionar',
                 ],
                 [
-                    'text' => 'Listar Características',
+                    'text' => 'Listar Pesos',
                     'icon' => 'list',
-                    'url' => 'admin/caracteristicas',
+                    'url' => 'admin/pesos',
                 ]
             ]
         ],

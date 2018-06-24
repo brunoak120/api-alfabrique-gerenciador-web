@@ -40,6 +40,13 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::delete('/caracteristicas/delete', 'CaracteristicasController@destroy')->name('caracteristicas.destroy');
 
     Route::get('/pesos', 'PesosController@index')->name('pesos.index');
+    Route::get('/pesos/adicionar', 'PesosController@create')->name('pesos.create');
+    Route::post('/pesos/adicionar', 'PesosController@store')->name('pesos.store');
+    Route::get('/pesos/editar/{id}', 'PesosController@show')->name('pesos.show');
+    Route::put('/pesos/editar/{id}', 'PesosController@update')->name('pesos.update');
+    Route::delete('/pesos/delete', 'PesosController@destroy')->name('pesos.destroy');
+
+    Route::get('/pesos', 'PesosController@index')->name('pesos.index');
     Route::get('/estatisticas', 'EstatisticasController@index')->name('estatisticas.index');
 });
 
