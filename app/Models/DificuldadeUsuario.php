@@ -26,4 +26,19 @@ class DificuldadeUsuario extends Model implements Transformable
         'usuario_id'
     ];
 
+    public function caracteristica()
+    {
+        return $this->belongsTo(Caracteristica::class);
+    }
+
+    public function dificuldade()
+    {
+        return $this->belongsTo(Dificuldade::class);
+    }
+
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class);
+    }
+
 }

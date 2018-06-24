@@ -39,12 +39,12 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::put('/caracteristicas/editar/{id}', 'CaracteristicasController@update')->name('caracteristicas.update');
     Route::delete('/caracteristicas/delete', 'CaracteristicasController@destroy')->name('caracteristicas.destroy');
 
-    Route::get('/pesos', 'PesosController@index')->name('pesos.index');
-    Route::get('/pesos/adicionar', 'PesosController@create')->name('pesos.create');
-    Route::post('/pesos/adicionar', 'PesosController@store')->name('pesos.store');
-    Route::get('/pesos/editar/{id}', 'PesosController@show')->name('pesos.show');
-    Route::put('/pesos/editar/{id}', 'PesosController@update')->name('pesos.update');
-    Route::delete('/pesos/delete', 'PesosController@destroy')->name('pesos.destroy');
+    Route::get('/dificuldades_usuarios', 'DificuldadeUsuarioController@index')->name('dificuldades_usuarios.index');
+    Route::get('/dificuldades_usuarios/adicionar', 'DificuldadeUsuarioController@create')->name('dificuldades_usuarios.create');
+    Route::post('/dificuldades_usuarios/adicionar', 'DificuldadeUsuarioController@store')->name('dificuldades_usuarios.store');
+    Route::get('/dificuldades_usuarios/editar/{id}', 'DificuldadeUsuarioController@show')->name('dificuldades_usuarios.show');
+    Route::put('/dificuldades_usuarios/editar/{id}', 'DificuldadeUsuarioController@update')->name('dificuldades_usuarios.update');
+    Route::delete('/dificuldades_usuarios/delete', 'DificuldadeUsuarioController@destroy')->name('dificuldades_usuarios.destroy');
 
     Route::get('/pesos', 'PesosController@index')->name('pesos.index');
     Route::get('/estatisticas', 'EstatisticasController@index')->name('estatisticas.index');

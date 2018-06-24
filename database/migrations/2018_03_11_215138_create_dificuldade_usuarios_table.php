@@ -16,6 +16,8 @@ class CreateDificuldadeUsuariosTable extends Migration
 	public function up()
 	{
 		Schema::create('dificuldade_usuarios', function(Blueprint $table) {
+            $table->increments('id');
+
             $table->integer('caracteristica_id')->unsigned();
             $table->foreign('caracteristica_id')->references('id')->on('caracteristicas');
 

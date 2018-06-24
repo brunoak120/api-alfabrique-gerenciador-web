@@ -35,4 +35,9 @@ class Usuario extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function dificuldadeUsuario()
+    {
+        return $this->hasMany(DificuldadeUsuario::class);
+    }
+
 }

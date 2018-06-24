@@ -169,18 +169,13 @@ return [
             ]
         ],
         [
-            'text' => 'Pesos',
-            'icon' => 'font',
+            'text' => 'Nível Dificuldade',
+            'icon' => 'line-chart',
             'submenu' => [
                 [
-                    'text' => 'Adicionar Pesos',
-                    'icon' => 'plus',
-                    'url'  => 'admin/pesos/adicionar',
-                ],
-                [
-                    'text' => 'Listar Pesos',
+                    'text' => 'Listar Dificuldades',
                     'icon' => 'list',
-                    'url' => 'admin/pesos',
+                    'url' => 'admin/dificuldades_usuarios',
                 ]
             ]
         ],

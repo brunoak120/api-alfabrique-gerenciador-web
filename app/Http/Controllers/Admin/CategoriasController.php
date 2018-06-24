@@ -16,11 +16,6 @@ class CategoriasController extends Controller
 
     }
 
-    public function create()
-    {
-        return view('admin.categorias.create');
-    }
-
     public function index()
     {
         $categorias = $this->categoriaRepository->all();
@@ -33,6 +28,11 @@ class CategoriasController extends Controller
         $categoria = $this->categoriaRepository->find($id);
 
         return view('admin.categorias.show', compact('categoria'));
+    }
+
+    public function create()
+    {
+        return view('admin.categorias.create');
     }
 
     public function store(Request $request)

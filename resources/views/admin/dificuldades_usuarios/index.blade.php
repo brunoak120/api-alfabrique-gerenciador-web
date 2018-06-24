@@ -5,7 +5,7 @@
 @section('content')
 
     <section class="content">
-        <h3> Pesos </h3>
+        <h3> Dificuldades Usuários </h3>
 
     </section>
 @stop
