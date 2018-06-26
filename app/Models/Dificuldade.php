@@ -24,4 +24,9 @@ class Dificuldade extends Model implements Transformable
         'peso'
     ];
 
+    public function dificuldadeUsuario()
+    {
+        return $this->hasMany(DificuldadeUsuario::class);
+    }
+
 }

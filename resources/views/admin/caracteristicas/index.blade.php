@@ -27,8 +27,12 @@
                                 <tr>
                                     <td>{{ $caracteristica->nome }}</td>
                                         <td>
+                                            @if ($caracteristica->id > 2)
                                             <a href="{{route('caracteristicas.show', $caracteristica->id)}}" title="Editar Caracteristica" class="btn btn-warning glyphicon glyphicon-pencil"></a>
                                             <a data-id="{{$caracteristica->id}}" class="btn btn-danger glyphicon glyphicon-remove removeCaracteristica" title="Excluir Caracteristica"></a>
+                                            @else
+                                            <i class="btn btn-danger glyphicon glyphicon-warning-sign" title="Característica Padrão"></i>
+                                            @endif
                                         </td>
                                 </tr>
                             @endforeach

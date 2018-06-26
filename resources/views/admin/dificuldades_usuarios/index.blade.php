@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Painel Palavras')
+@section('title', 'Painel Pesos')
 
 @section('content')
 
     <section class="content">
-        <h3> Palavras </h3>
+        <h3> Dificuldades Usuários </h3>
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Listagem de Palavras</h3>
+                        <h3 class="box-title">Listagem de Dificuldades Usuários</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -18,20 +18,21 @@
                         <table id="date_picker" class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>Categoria</th>
-                                <th>Nome</th>
-                                <th>Ação</th>
+                                <th>Usuário</th>
+                                <th>Característica</th>
+                                <th>Peso</th>
+                                <th>Editar</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($palavras as $palavra)
+                            @foreach ($dificuldadesUsuarios as $dificuldadeUsuario)
                                 <tr>
-                                    <td>{{ $palavra->categoria->nome }}</td>
-                                    <td>{{ $palavra->nome }}</td>
-                                        <td>
-                                            <a href="{{route('palavras.show', $palavra->id)}}" title="Editar Palavra" class="btn btn-warning glyphicon glyphicon-pencil"></a>
-                                            <a data-id="{{$palavra->id}}" class="btn btn-danger glyphicon glyphicon-remove removePalavra" title="Excluir Palavra"></a>
-                                        </td>
+                                    <td>{{ $dificuldadeUsuario->usuario->nome }}</td>
+                                    <td>{{ $dificuldadeUsuario->caracteristica->nome }}</td>
+                                    <td>{{ $dificuldadeUsuario->peso }}</td>
+                                    <td>
+                                        <a href="{{route('dificuldades_usuarios.show', $dificuldadeUsuario->id)}}" title="Editar Dificuldade Usuário" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+                                    </td>
                                 </tr>
                             @endforeach
 
@@ -44,6 +45,5 @@
             </div>
             <!-- /.col -->
         </div>
-        <!-- /.row -->
     </section>
 @stop

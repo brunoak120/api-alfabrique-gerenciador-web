@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Caracteristica;
+use App\Observers\CaracteristicasObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Caracteristica::observe(CaracteristicasObserver::class);
     }
 
     /**

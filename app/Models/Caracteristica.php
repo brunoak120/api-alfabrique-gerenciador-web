@@ -26,4 +26,9 @@ class Caracteristica extends Model implements Transformable
         'descricao'
     ];
 
+    public function dificuldadeUsuario()
+    {
+        return $this->hasMany(DificuldadeUsuario::class);
+    }
+
 }

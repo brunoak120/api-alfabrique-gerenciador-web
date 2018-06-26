@@ -18,7 +18,7 @@ class CreateUsuariosTable extends Migration
 		Schema::create('usuarios', function(Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('nivel_acesso_id')->unsigned();
+            $table->integer('nivel_acesso_id')->unsigned()->default(2);
             $table->foreign('nivel_acesso_id')->references('id')->on('nivel_acessos');
 
             $table->integer('endereco_id')->unsigned();

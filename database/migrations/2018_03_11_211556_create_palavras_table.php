@@ -22,6 +22,8 @@ class CreatePalavrasTable extends Migration
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
 
             $table->string('nome');
+            $table->integer('silabas')->nullable();
+            $table->integer('letras')->nullable();
             $table->longText('imagem')->nullable();
 
             $table->timestamps();
