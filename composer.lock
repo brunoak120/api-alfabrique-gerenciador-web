@@ -1041,23 +1041,7 @@
         },
         {
             "name": "nesbot/carbon",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "1.29.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "ed6aa898982f441ccc9b2acdec51490f2bc5d337"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/ed6aa898982f441ccc9b2acdec51490f2bc5d337",
-                "reference": "ed6aa898982f441ccc9b2acdec51490f2bc5d337",
-=======
-            "version": "1.29.0",
-=======
             "version": "1.31.1",
->>>>>>> dev
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
@@ -1065,14 +1049,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/b1cc4493fafb1b1402d50474fe6305e0558c6829",
-                "reference": "b1cc4493fafb1b1402d50474fe6305e0558c6829",
->>>>>>> dev
-=======
                 "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/385780c8ca2dbfd25452666e3f55e8dc1df58c41",
                 "reference": "385780c8ca2dbfd25452666e3f55e8dc1df58c41",
->>>>>>> dev
                 "shasum": ""
             },
             "require": {
@@ -1114,15 +1092,7 @@
                 "datetime",
                 "time"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2018-05-29T15:23:46+00:00"
-=======
-            "time": "2018-05-24T13:09:20+00:00"
->>>>>>> dev
-=======
             "time": "2018-06-25T13:15:16+00:00"
->>>>>>> dev
         },
         {
             "name": "nikic/php-parser",
@@ -1222,13 +1192,7 @@
                 "pseudorandom",
                 "random"
             ],
-<<<<<<< HEAD
-            "time": "2018-04-04T21:24:14+00:00"
-<<<<<<< HEAD
-=======
-=======
             "time": "2018-06-08T15:26:40+00:00"
->>>>>>> dev
         },
         {
             "name": "prettus/l5-repository",
@@ -1332,7 +1296,6 @@
                 "validation"
             ],
             "time": "2017-08-28T23:28:32+00:00"
->>>>>>> dev
         },
         {
             "name": "psr/container",
@@ -1812,23 +1775,7 @@
         },
         {
             "name": "symfony/css-selector",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v4.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/css-selector.git",
-                "reference": "03ac71606ecb0b0ce792faa17d74cc32c2949ef4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/03ac71606ecb0b0ce792faa17d74cc32c2949ef4",
-                "reference": "03ac71606ecb0b0ce792faa17d74cc32c2949ef4",
-=======
-            "version": "v4.0.11",
-=======
             "version": "v3.4.12",
->>>>>>> dev
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -1836,14 +1783,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/0383a1a4eb1ffcac28719975d3e01bfa14be8ab3",
-                "reference": "0383a1a4eb1ffcac28719975d3e01bfa14be8ab3",
->>>>>>> dev
-=======
                 "url": "https://api.github.com/repos/symfony/css-selector/zipball/d2ce52290b648ae33b5301d09bc14ee378612914",
                 "reference": "d2ce52290b648ae33b5301d09bc14ee378612914",
->>>>>>> dev
                 "shasum": ""
             },
             "require": {
@@ -1852,15 +1793,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    "dev-master": "4.1-dev"
-=======
-                    "dev-master": "4.0-dev"
->>>>>>> dev
-=======
                     "dev-master": "3.4-dev"
->>>>>>> dev
                 }
             },
             "autoload": {
@@ -1891,15 +1824,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2018-05-30T07:26:09+00:00"
-=======
-            "time": "2018-05-11T15:58:37+00:00"
->>>>>>> dev
-=======
             "time": "2018-05-16T12:49:49+00:00"
->>>>>>> dev
         },
         {
             "name": "symfony/debug",
@@ -1959,23 +1884,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v4.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "2391ed210a239868e7256eb6921b1bd83f3087b5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/2391ed210a239868e7256eb6921b1bd83f3087b5",
-                "reference": "2391ed210a239868e7256eb6921b1bd83f3087b5",
-=======
-            "version": "v4.0.11",
-=======
             "version": "v3.4.12",
->>>>>>> dev
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -1983,14 +1892,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/63353a71073faf08f62caab4e6889b06a787f07b",
-                "reference": "63353a71073faf08f62caab4e6889b06a787f07b",
->>>>>>> dev
-=======
                 "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/fdd5abcebd1061ec647089c6c41a07ed60af09f8",
                 "reference": "fdd5abcebd1061ec647089c6c41a07ed60af09f8",
->>>>>>> dev
                 "shasum": ""
             },
             "require": {
@@ -2013,15 +1916,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    "dev-master": "4.1-dev"
-=======
-                    "dev-master": "4.0-dev"
->>>>>>> dev
-=======
                     "dev-master": "3.4-dev"
->>>>>>> dev
                 }
             },
             "autoload": {
@@ -2048,15 +1943,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2018-04-06T07:35:57+00:00"
-=======
-            "time": "2018-04-06T07:35:43+00:00"
->>>>>>> dev
-=======
             "time": "2018-04-06T07:35:25+00:00"
->>>>>>> dev
         },
         {
             "name": "symfony/finder",
@@ -2551,23 +2438,7 @@
         },
         {
             "name": "symfony/translation",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v4.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/translation.git",
-                "reference": "16328f5b217cebc8dd4adfe4aeeaa8c377581f5a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/16328f5b217cebc8dd4adfe4aeeaa8c377581f5a",
-                "reference": "16328f5b217cebc8dd4adfe4aeeaa8c377581f5a",
-=======
-            "version": "v4.0.11",
-=======
             "version": "v3.4.12",
->>>>>>> dev
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
@@ -2575,14 +2446,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/translation/zipball/e1f5863d0a9e79cfec7f031421ced3fe1d403e66",
-                "reference": "e1f5863d0a9e79cfec7f031421ced3fe1d403e66",
->>>>>>> dev
-=======
                 "url": "https://api.github.com/repos/symfony/translation/zipball/7047f725e35eab768137c677f8c38e4a2a8e38fb",
                 "reference": "7047f725e35eab768137c677f8c38e4a2a8e38fb",
->>>>>>> dev
                 "shasum": ""
             },
             "require": {
@@ -2596,15 +2461,7 @@
             },
             "require-dev": {
                 "psr/log": "~1.0",
-<<<<<<< HEAD
-                "symfony/config": "~3.4|~4.0",
-<<<<<<< HEAD
-                "symfony/console": "~3.4|~4.0",
-=======
->>>>>>> dev
-=======
                 "symfony/config": "~2.8|~3.0|~4.0",
->>>>>>> dev
                 "symfony/dependency-injection": "~3.4|~4.0",
                 "symfony/finder": "~2.8|~3.0|~4.0",
                 "symfony/intl": "^2.8.18|^3.2.5|~4.0",
@@ -2618,15 +2475,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    "dev-master": "4.1-dev"
-=======
-                    "dev-master": "4.0-dev"
->>>>>>> dev
-=======
                     "dev-master": "3.4-dev"
->>>>>>> dev
                 }
             },
             "autoload": {
@@ -2653,15 +2502,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2018-05-30T07:26:09+00:00"
-=======
-            "time": "2018-05-21T10:09:47+00:00"
->>>>>>> dev
-=======
             "time": "2018-05-21T10:06:52+00:00"
->>>>>>> dev
         },
         {
             "name": "symfony/var-dumper",
@@ -3112,28 +2953,25 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.8.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6"
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/478465659fd987669df0bd8a9bf22a8710e5f1b6",
-                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
-            },
-            "replace": {
-                "myclabs/deep-copy": "self.version"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
                 "doctrine/collections": "^1.0",
                 "doctrine/common": "^2.6",
-                "phpunit/phpunit": "^7.1"
+                "phpunit/phpunit": "^4.1"
             },
             "type": "library",
             "autoload": {
@@ -3156,7 +2994,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2018-05-29T17:25:09+00:00"
+            "time": "2017-10-19T19:58:43+00:00"
         },
         {
             "name": "phar-io/manifest",
