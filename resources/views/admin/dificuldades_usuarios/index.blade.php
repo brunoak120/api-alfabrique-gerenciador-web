@@ -27,9 +27,9 @@
                             <tbody>
                             @foreach ($dificuldadesUsuarios as $dificuldadeUsuario)
                                 <tr>
-                                    <td>{{ $dificuldadeUsuario->usuario()->nome }}</td>
-                                    <td>{{ $dificuldadeUsuario->caracteristica()->nome }}</td>
-                                    <td>{{ $dificuldadeUsuario->dificuldade()->peso }}</td>
+                                    <td>{{ $dificuldadeUsuario->usuario->nome }}</td>
+                                    <td>{{ $dificuldadeUsuario->caracteristica->nome }}</td>
+                                    <td>{{ $dificuldadeUsuario->peso }}</td>
                                     <td>
                                         <a href="{{route('dificuldades_usuarios.show', $dificuldadeUsuario->id)}}" title="Editar Dificuldade Usuário" class="btn btn-warning glyphicon glyphicon-pencil"></a>
                                     </td>
