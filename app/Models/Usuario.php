@@ -23,7 +23,8 @@ class Usuario extends Authenticatable
         'nivel_acesso',
         'endereco_id',
         'nome',
-        'email'
+        'email',
+        'password'
     ];
 
     /**
@@ -38,6 +39,11 @@ class Usuario extends Authenticatable
     public function dificuldadeUsuario()
     {
         return $this->hasMany(DificuldadeUsuario::class);
+    }
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
     }
 
 }
