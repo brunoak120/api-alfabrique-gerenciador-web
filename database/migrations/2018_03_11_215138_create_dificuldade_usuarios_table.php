@@ -22,7 +22,7 @@ class CreateDificuldadeUsuariosTable extends Migration
             $table->foreign('usuario_id')->references('id')->on('usuarios');
 
             $table->integer('caracteristica_id')->unsigned();
-            $table->foreign('caracteristica_id')->references('id')->on('caracteristicas');
+            $table->foreign('caracteristica_id')->references('id')->on('caracteristicas')->onDelete('cascade');
 
             $table->double('peso');
 

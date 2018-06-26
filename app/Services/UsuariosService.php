@@ -40,7 +40,7 @@ class UsuariosService
         $caracteristicas = $this->caracteristicasRepository->all();
 
         foreach ($caracteristicas as $caracteristica) {
-            $this->dificuldadeUsuarioRepository->create(['usuario_id' => $id, 'caracteristica_id' => $caracteristica->id, 'peso' => 30]);
+            $this->dificuldadeUsuarioRepository->create(['usuario_id' => $id, 'caracteristica_id' => $caracteristica->id, 'peso' => PESO_INICIAL]);
         }
     }
 }
