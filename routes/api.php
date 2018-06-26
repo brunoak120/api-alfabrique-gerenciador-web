@@ -26,6 +26,5 @@ Route::get('usuarios', 'UsuariosController@index')->name('usuarios.index');*/
 });*/
 
 Route::group(['middleware' => ['api'], 'namespace' => 'Admin'], function() {
-    Route::get('usuarios', 'UsuariosController@index');
     Route::post('usuario/adicionar', 'UsuariosController@store');
 });

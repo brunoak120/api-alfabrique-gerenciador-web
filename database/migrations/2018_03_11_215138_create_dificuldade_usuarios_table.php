@@ -19,7 +19,7 @@ class CreateDificuldadeUsuariosTable extends Migration
             $table->increments('id');
 
             $table->integer('usuario_id')->unsigned();
-            $table->foreign('usuario_id')->references('id')->on('usuarios');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
 
             $table->integer('caracteristica_id')->unsigned();
             $table->foreign('caracteristica_id')->references('id')->on('caracteristicas')->onDelete('cascade');

@@ -19,15 +19,11 @@ class CaracteristicasObserver
 
     public function created(Caracteristica $caracteristica)
     {
-        $usuarios = $this->usuariosRepository->findWhere(['nivel_acesso_id' => JOGADOR_ID]);
+        $usuarios = $this->usuariosRepository->findWhere(['nivel_acesso_id' => config('constants.JOGADOR_ID')]);
 
         foreach ($usuarios as $usuario) {
-            $this->dificuldadesUsuariosRepository->create(['usuario_id' => $usuario->id, 'caracteristica_id' => $caracteristica->id, 'peso' => PESO_INICIAL]);
+            $this->dificuldadesUsuariosRepository->create(['usuario_id' => $usuario->id, 'caracteristica_id' => $caracteristica->id, 'peso' => config('constants.PESO_INICIAL')]);
         }
     }
 
-    public function deleting(Caracteristica $caracteristica)
-    {
-        //
-    }
 }

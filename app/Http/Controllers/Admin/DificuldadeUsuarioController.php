@@ -24,26 +24,17 @@ class DificuldadeUsuarioController extends Controller
 
     public function show($id)
     {
-        
-    }
+        $dificuldadeUsuario = $this->dificuldadeUsuarioRepository->find($id);
 
-    public function create()
-    {
-        
-    }
-
-    public function store(Request $request)
-    {
-        
+        return view('admin.dificuldades_usuarios.show', compact('dificuldadeUsuario'));
     }
 
     public function update(Request $request, $id)
     {
-        
+        $this->dificuldadeUsuarioRepository->update(['peso' => $request->peso], $id);
+
+        flash('Dificuldade Usuário atualizada com sucesso.')->success();
+        return redirect()->back();
     }
 
-    public function destroy(Request $request)
-    {
-        
-    }
 }
