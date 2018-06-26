@@ -18,6 +18,9 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::get('/', 'AdminController@index')->name('admin.index');
 
+    Route::get('/settings', 'AdminController@pass')->name('admin.pass');
+    Route::put('/settings/{id}', 'AdminController@change_pass')->name('admin.change_pass');
+
     Route::get('/palavras', 'PalavrasController@index')->name('palavras.index');
     Route::get('/palavras/adicionar', 'PalavrasController@create')->name('palavras.create');
     Route::post('/palavras/adicionar', 'PalavrasController@store')->name('palavras.store');
