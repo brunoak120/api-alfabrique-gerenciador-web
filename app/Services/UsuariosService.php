@@ -6,6 +6,7 @@ use App\Repositories\CaracteristicaRepository;
 use App\Repositories\DificuldadeUsuarioRepository;
 use App\Repositories\EnderecoRepository;
 use App\Repositories\UsuarioRepository;
+use Illuminate\Support\Facades\Config;
 
 class UsuariosService
 {
@@ -40,7 +41,7 @@ class UsuariosService
         $caracteristicas = $this->caracteristicasRepository->all();
 
         foreach ($caracteristicas as $caracteristica) {
-            $this->dificuldadeUsuarioRepository->create(['usuario_id' => $id, 'caracteristica_id' => $caracteristica->id, 'peso' => PESO_INICIAL]);
+            $this->dificuldadeUsuarioRepository->create(['usuario_id' => $id, 'caracteristica_id' => $caracteristica->id, 'peso' => Config::get('constants.PESO_INICIAL')]);
         }
     }
 }
