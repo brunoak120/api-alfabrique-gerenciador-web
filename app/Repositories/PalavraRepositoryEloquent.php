@@ -36,15 +36,18 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
 
     public function buscaPalavraCompativel($dificuldadesUsuarios)
     {
-        $sql = "SELECT nome FROM palavras WHERE (silabas * {}";
-        foreach ($dificuldadesUsuarios as $dificuldadeUsuario)
-        {
-            
-        }
-
-        return $this->scopeQuery(function ($query) {
-            return $query->orderBy('categoria');
+        
+        $resultado = $this->scopeQuery(function ($query) {
+            return $query
+                ->selectRaw('nome',
+                    "ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'a', ''))) / LENGTH('a')) AS a",
+                    "ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'io', ''))) / LENGTH('io')) AS oi",
+                    "ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'a', ''))) / LENGTH('a')) + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'io', ''))) / LENGTH('io')) AS soma",
+                    "((5 * 25 + 15 * 29 + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'a', ''))) / LENGTH('a')) * 10 + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'io', ''))) / LENGTH('io')) * 12) / (5 + 15 + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'a', ''))) / LENGTH('a')) + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'io', ''))) / LENGTH('io')))) AS peso")
+                ->whereRaw("((5 * 25 + 15 * 29 + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'a', ''))) / LENGTH('a')) * 10 + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'io', ''))) / LENGTH('io')) * 12) / (5 + 15 + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'a', ''))) / LENGTH('a')) + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'io', ''))) / LENGTH('io'))))", '<=', 30);
         });
+        dd($resultado);
+        return $resultado;
     }
 
     public function retornaConcat($caracteristica)
