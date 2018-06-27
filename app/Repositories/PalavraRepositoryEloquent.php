@@ -33,5 +33,28 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    public function buscaPalavraCompativel($dificuldadesUsuarios)
+    {
+        $sql = "SELECT nome FROM palavras WHERE (silabas * {}";
+        foreach ($dificuldadesUsuarios as $dificuldadeUsuario)
+        {
+            
+        }
+
+        return $this->scopeQuery(function ($query) {
+            return $query->orderBy('categoria');
+        });
+    }
+
+    public function retornaConcat($caracteristica)
+    {
+        return "ROUND (   
+                    (
+                        LENGTH(lower(nome))
+                        - LENGTH( REPLACE (lower(nome), '{$caracteristica}', '') ) 
+                    ) / LENGTH('{$caracteristica}')        
+                )";
+    }
     
 }
