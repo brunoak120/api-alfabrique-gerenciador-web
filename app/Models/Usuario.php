@@ -24,7 +24,8 @@ class Usuario extends Authenticatable
         'endereco_id',
         'nome',
         'email',
-        'password'
+        'password',
+        'pontos'
     ];
 
     /**

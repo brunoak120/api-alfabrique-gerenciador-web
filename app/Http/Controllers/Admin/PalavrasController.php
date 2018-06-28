@@ -5,17 +5,19 @@ namespace App\Http\Controllers\Admin;
 use App\Repositories\CategoriaRepository;
 use App\Repositories\PalavraRepository;
 use App\Http\Controllers\Controller;
+use App\Services\PalavrasService;
 use Illuminate\Http\Request;
 
 class PalavrasController extends Controller
 {
     protected $palavraRepository;
-
+    protected $palavrasService;
     protected $categoriaRepository;
 
-    public function __construct(PalavraRepository $palavraRepository, CategoriaRepository $categoriaRepository)
+    public function __construct(PalavraRepository $palavraRepository, PalavrasService $palavrasService, CategoriaRepository $categoriaRepository)
     {
         $this->palavraRepository = $palavraRepository;
+        $this->palavrasService = $palavrasService;
         $this->categoriaRepository = $categoriaRepository;
     }
 
@@ -112,5 +114,12 @@ class PalavrasController extends Controller
         }
 
         return $upload;
+    }
+
+    public function findWord()
+    {
+        $palavra = $this->palavrasService->buscarPalavra();
+
+        return response()->json($palavra);
     }
 }

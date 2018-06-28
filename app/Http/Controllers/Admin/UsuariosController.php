@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Repositories\DificuldadeUsuarioRepository;
 use App\Repositories\PalavraRepository;
-use App\Repositories\UsuarioRepository;
 use App\Services\UsuariosService;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -30,13 +28,5 @@ class UsuariosController extends Controller
 
         return response()->json($usuario->id);
 
-    }
-
-    public function findWord()
-    {
-        $dificuldadesUsuarios = $this->dificuldadeUsuariosRepository->findWhere(['usuario_id' => 3]);
-        $palavra = $this->palavraRepository->buscaPalavraCompativel($dificuldadesUsuarios);
-
-        return response()->json($dificuldadesUsuarios);
     }
 }

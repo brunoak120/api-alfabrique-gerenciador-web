@@ -34,30 +34,15 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-    public function buscaPalavraCompativel($dificuldadesUsuarios)
+    public function buscaPalavraCompativel($where)
     {
-        
-        $resultado = $this->scopeQuery(function ($query) {
+        $resultado = $this->scopeQuery(function ($query) use ($where) {
             return $query
-                ->selectRaw('nome',
-                    "ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'a', ''))) / LENGTH('a')) AS a",
-                    "ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'io', ''))) / LENGTH('io')) AS oi",
-                    "ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'a', ''))) / LENGTH('a')) + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'io', ''))) / LENGTH('io')) AS soma",
-                    "((5 * 25 + 15 * 29 + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'a', ''))) / LENGTH('a')) * 10 + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'io', ''))) / LENGTH('io')) * 12) / (5 + 15 + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'a', ''))) / LENGTH('a')) + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'io', ''))) / LENGTH('io')))) AS peso")
-                ->whereRaw("((5 * 25 + 15 * 29 + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'a', ''))) / LENGTH('a')) * 10 + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'io', ''))) / LENGTH('io')) * 12) / (5 + 15 + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'a', ''))) / LENGTH('a')) + ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), 'io', ''))) / LENGTH('io'))))", '<=', 30);
-        });
-        dd($resultado);
-        return $resultado;
-    }
+                ->selectRaw("nome, {$where} AS peso")
+                ->whereRaw("{$where} >= 30 AND {$where} <= 35");
+        })->first();
 
-    public function retornaConcat($caracteristica)
-    {
-        return "ROUND (   
-                    (
-                        LENGTH(lower(nome))
-                        - LENGTH( REPLACE (lower(nome), '{$caracteristica}', '') ) 
-                    ) / LENGTH('{$caracteristica}')        
-                )";
+        return $resultado;
     }
     
 }
