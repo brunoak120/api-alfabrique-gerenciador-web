@@ -39,8 +39,7 @@ class AdminController extends Controller
     {
         $usuario = $this->usuarioRepository->find(auth()->user()->id);
         $cidade = $this->cidadeRepository->find($usuario->endereco->cidade_id);
-        dd($cidade);
 
-        return view('admin.profile', compact('usuario'));
+        return view('admin.profile', compact('usuario', 'cidade'));
     }
 }
