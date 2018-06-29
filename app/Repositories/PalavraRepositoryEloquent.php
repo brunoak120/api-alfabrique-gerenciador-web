@@ -39,7 +39,7 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
         $pesoRange = $pontuacao + config('constants.PESO_RANGE');
         $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange) {
             return $query
-                ->selectRaw("nome, {$where} AS peso")
+                ->selectRaw("nome, imagem, {$where} AS peso")
                 ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}");
         })->first();
 
