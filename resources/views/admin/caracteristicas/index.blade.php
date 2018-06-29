@@ -27,7 +27,7 @@
                                 <tr>
                                     <td>{{ $caracteristica->nome }}</td>
                                         <td>
-                                            @if ($caracteristica->id > 2)
+                                            @if ($caracteristica->id > 1)
                                             <a href="{{route('caracteristicas.show', $caracteristica->id)}}" title="Editar Caracteristica" class="btn btn-warning glyphicon glyphicon-pencil"></a>
                                             <a data-id="{{$caracteristica->id}}" class="btn btn-danger glyphicon glyphicon-remove removeCaracteristica" title="Excluir Caracteristica"></a>
                                             @else
