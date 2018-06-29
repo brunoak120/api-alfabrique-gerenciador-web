@@ -34,12 +34,13 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-    public function buscaPalavraCompativel($where)
+    public function buscaPalavraCompativel($where, $pontuacao)
     {
-        $resultado = $this->scopeQuery(function ($query) use ($where) {
+        $pesoRange = $pontuacao + config('constants.PESO_RANGE');
+        $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange) {
             return $query
                 ->selectRaw("nome, {$where} AS peso")
-                ->whereRaw("{$where} >= 30 AND {$where} <= 35");
+                ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}");
         })->first();
 
         return $resultado;

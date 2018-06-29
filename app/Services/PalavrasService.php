@@ -22,9 +22,10 @@ class PalavrasService
 
     public function buscarPalavra()
     {
-        $dificuldades = $this->dificuldadeUsuarioRepository->findWhere(['usuario_id' => 3]);
+        $dificuldades = $this->dificuldadeUsuarioRepository->findWhere(['usuario_id' => config('constants.JOGADOR_ID_TESTE')]);
+        $usuarioPontos = $this->usuariosRepository->findWhere(['id' => config('constants.JOGADOR_ID_TESTE')])->pluck('pontuacao')->get(0);
         $where = $this->retornaQuery($dificuldades);
-        $palavra = $this->palavrasRepository->buscaPalavraCompativel($where);
+        $palavra = $this->palavrasRepository->buscaPalavraCompativel($where, $usuarioPontos);
 
         return $palavra;
     }

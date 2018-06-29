@@ -25,7 +25,7 @@ class Usuario extends Authenticatable
         'nome',
         'email',
         'password',
-        'pontos'
+        'pontuacao'
     ];
 
     /**
