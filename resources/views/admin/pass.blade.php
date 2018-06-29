@@ -18,15 +18,15 @@
                 <div class="box-body">
                     @include('flash::message')
                     <div class="form-group">
-                        <label for="nome">Senha Antiga</label>
+                        <label for="old_pass">Senha Antiga</label>
                         <input type="password" name="old_pass" id="old_pass"  class="form-control" placeholder="Senha Antiga">
                     </div>
                     <div class="form-group">
-                        <label for="nome">Nova Senha</label>
+                        <label for="new_pass">Nova Senha</label>
                         <input type="password" name="new_pass" id="new_pass"  class="form-control" placeholder="Nova Senha">
                     </div>
                     <div class="form-group">
-                        <label for="nome">Confirmar Nova Senha</label>
+                        <label for="new_pass_confirmation">Confirmar Nova Senha</label>
                         <input type="password" name="new_pass_confirmation" id="new_pass_confirmation"  class="form-control" placeholder="Confirmar Nova Senha" >
                     </div>
                 </div>

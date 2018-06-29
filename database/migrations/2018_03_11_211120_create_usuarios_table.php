@@ -27,6 +27,7 @@ class CreateUsuariosTable extends Migration
             $table->string('nome', 100);
             $table->string('email', 100)->unique();
             $table->string('password');
+            $table->integer('pontuacao')->default(config('constants.PESO_INICIAL'))->nullable();
 
             $table->rememberToken();
             $table->timestamps();

@@ -29,4 +29,9 @@ class Endereco extends Model implements Transformable
         'complemento'
     ];
 
+    public function usuario()
+    {
+        return $this->hasOne(Usuario::class);
+    }
+
 }

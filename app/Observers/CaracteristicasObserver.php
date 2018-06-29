@@ -19,7 +19,7 @@ class CaracteristicasObserver
 
     public function created(Caracteristica $caracteristica)
     {
-        $usuarios = $this->usuariosRepository->findWhere(['nivel_acesso_id' => config('constants.JOGADOR_ID')]);
+        $usuarios = $this->usuariosRepository->findWhere(['nivel_acesso_id' => config('constants.JOGADOR_ACESSO')]);
 
         foreach ($usuarios as $usuario) {
             $this->dificuldadesUsuariosRepository->create(['usuario_id' => $usuario->id, 'caracteristica_id' => $caracteristica->id, 'peso' => config('constants.PESO_INICIAL')]);

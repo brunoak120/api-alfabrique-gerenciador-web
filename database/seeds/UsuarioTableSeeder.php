@@ -18,13 +18,8 @@ class UsuarioTableSeeder extends Seeder
                 'endereco_id' => '1',
                 'nome' => 'Administrador',
                 'email' => 'adm@hotmail.com',
-                'password' => bcrypt('12345')
-            ], [
-                'nivel_acesso_id' => '2',
-                'endereco_id' => '2',
-                'nome' => 'Jogador X',
-                'email' => 'jogador@alfabrinque.com',
-                'password' => bcrypt('12345')
+                'password' => bcrypt('12345'),
+                'pontuacao' => null
             ]
         ]);
     }
