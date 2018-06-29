@@ -24,4 +24,9 @@ class NivelAcesso extends Model implements Transformable
         'nome'
     ];
 
+    public function usuario()
+    {
+        return $this->hasOne(Usuario::class);
+    }
+
 }

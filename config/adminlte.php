@@ -182,7 +182,7 @@ return [
         'Configurações de Conta',
         [
             'text' => 'Perfil',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/profile',
             'icon' => 'user',
         ],
         [

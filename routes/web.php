@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::get('/', 'AdminController@index')->name('admin.index');
 
     Route::get('/settings', 'AdminController@pass')->name('admin.pass');
+    Route::get('/profile', 'AdminController@profile')->name('admin.profile');
     Route::put('/settings/{id}', 'AdminController@change_pass')->name('admin.change_pass');
 
     Route::get('/palavras', 'PalavrasController@index')->name('palavras.index');

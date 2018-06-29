@@ -25,4 +25,13 @@ class Cidade extends Model implements Transformable
         'nome'
     ];
 
+    public function estado()
+    {
+        return $this->belongsTo(Estado::class);
+    }
+
+    public function enderecos()
+    {
+        return $this->hasMany(Endereco::class);
+    }
 }

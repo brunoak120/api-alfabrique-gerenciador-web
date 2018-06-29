@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Repositories\CidadeRepository;
 use App\Repositories\UsuarioRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,10 +10,12 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller
 {
     protected $usuarioRepository;
+    protected $cidadeRepository;
 
-    public function __construct(UsuarioRepository $usuarioRepository)
+    public function __construct(UsuarioRepository $usuarioRepository, CidadeRepository $cidadeRepository)
     {
         $this->usuarioRepository = $usuarioRepository;
+        $this->cidadeRepository = $cidadeRepository;
     }
     public function index()
     {
@@ -30,5 +33,14 @@ class AdminController extends Controller
 
         flash('Senha alterada com sucesso.')->success();
         return redirect()->back();
+    }
+
+    public function profile()
+    {
+        $usuario = $this->usuarioRepository->find(auth()->user()->id);
+        $cidade = $this->cidadeRepository->find($usuario->endereco->cidade_id);
+        dd($cidade);
+
+        return view('admin.profile', compact('usuario'));
     }
 }

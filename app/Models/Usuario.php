@@ -20,7 +20,7 @@ class Usuario extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nivel_acesso',
+        'nivel_acesso_id',
         'endereco_id',
         'nome',
         'email',
@@ -40,6 +40,16 @@ class Usuario extends Authenticatable
     public function dificuldadeUsuario()
     {
         return $this->hasMany(DificuldadeUsuario::class);
+    }
+
+    public function nivelAcesso()
+    {
+        return $this->belongsTo(NivelAcesso::class);
+    }
+
+    public function endereco()
+    {
+        return $this->belongsTo(Endereco::class);
     }
 
     public function setPasswordAttribute($password)

@@ -25,4 +25,9 @@ class Estado extends Model implements Transformable
         'sigla'
     ];
 
+    public function cidades()
+    {
+        return $this->hasMany(Cidade::class);
+    }
+
 }
