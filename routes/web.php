@@ -19,6 +19,8 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::get('/', 'AdminController@index')->name('admin.index');
 
     Route::get('/settings', 'AdminController@pass')->name('admin.pass');
+    Route::get('/profile/get-cidades/{id}', 'AdminController@getCidades')->name('admin.get_cidades');
+    Route::put('/profile/change-profile/{id}', 'AdminController@changeProfile')->name('admin.change_profile');
     Route::get('/profile', 'AdminController@profile')->name('admin.profile');
     Route::put('/settings/{id}', 'AdminController@change_pass')->name('admin.change_pass');
 

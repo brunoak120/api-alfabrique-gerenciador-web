@@ -138,6 +138,7 @@
     <script src="{{ asset('js/sweet-alert-categorias.js') }}"></script>
     <script src="{{ asset('js/sweet-alert-palavras.js') }}"></script>
     <script src="{{ asset('js/sweet-alert-caracteristicas.js') }}"></script>
+    <script src="{{ asset('js/profile-ajax.js') }}"></script>
     @stack('js')
     @yield('js')
 @stop
