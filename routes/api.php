@@ -27,5 +27,6 @@ Route::get('usuarios', 'UsuariosController@index')->name('usuarios.index');*/
 
 Route::group(['middleware' => ['api'], 'namespace' => 'Admin'], function() {
     Route::post('usuario/adicionar', 'UsuariosController@store');
-    Route::get('buscarPalavra', 'PalavrasController@findWord');
+    Route::get('buscarPalavra', 'PalavrasController@buscarPalavra');
+    Route::post('enviarPalavra', 'PalavrasController@enviarPalavra');
 });

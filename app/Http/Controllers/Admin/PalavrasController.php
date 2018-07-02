@@ -116,10 +116,16 @@ class PalavrasController extends Controller
         return $upload;
     }
 
-    public function findWord()
+    public function buscarPalavra()
     {
         $palavra = $this->palavrasService->buscarPalavra();
 
         return response()->json($palavra);
+    }
+
+    public function enviarPalavra(Request $request)
+    {
+        $resposta = $this->palavrasService->avaliarReposta($request);
+        return response()->json($resposta);
     }
 }
