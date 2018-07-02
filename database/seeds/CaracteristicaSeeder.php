@@ -16,7 +16,7 @@ class CaracteristicaSeeder extends Seeder
         DB::table('caracteristicas')->insert([
             [
                 'id' => 1,
-                'nome' => 'Sílabas',
+                'nome' => config('constants.PALAVRA_PADRAO'),
                 'descricao' => 'Dificuldade na característica de quantidade de sílabas na palavra.',
                 "created_at" => $now,
                 "updated_at" => $now,

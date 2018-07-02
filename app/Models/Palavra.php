@@ -24,6 +24,8 @@ class Palavra extends Model implements Transformable
     protected $fillable = [
         'categoria_id',
         'nome',
+        'silabas',
+        'letras',
         'imagem'
     ];
 

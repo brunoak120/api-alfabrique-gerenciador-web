@@ -17,16 +17,18 @@
                 {{ csrf_field() }}
                 <div class="box-body">
                     @include('flash::message')
-                    <div class="row">
-                        <div class="col-xs-6">
+                    <div class=" form-group row">
+                        <div class="col-md-6">
                             <label for="nome">Nome</label>
                             <input type="nome" name="nome" id="nome" class="form-control" placeholder="Nome usuário" value="{{$usuario->nome}}">
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-md-6">
                             <label for="email">E-mail</label>
                             <input type="email" name="email" id="email"  class="form-control" placeholder="Email usuário" value="{{$usuario->email}}">
                         </div>
-                        <div class="col-xs-3">
+                    </div>
+                    <div class=" form-group row">
+                        <div class="col-md-3">
                             <label for="estado">Estado</label>
                             <select name="estado" id="estado" class="form-control">
                             @foreach($estados as $estado)
@@ -38,7 +40,7 @@
                             @endforeach
                             </select>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-md-3">
                             <label for="cidade">Cidade</label>
                             <select name="cidade" id="cidade" class="form-control">
                             @foreach($cidades as $cidade)
@@ -50,23 +52,25 @@
                                     @endforeach
                              </select>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-md-6">
                             <label for="rua">Rua</label>
                             <input type="text" name="rua" id="rua"  class="form-control" placeholder="Rua" value="{{$usuario->endereco->logradouro}}">
                         </div>
-                        <div class="col-xs-3">
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
                             <label for="numero">N°</label>
                             <input type="text" name="numero" id="numero"  class="form-control" placeholder="Número" value="{{$usuario->endereco->numero}}">
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-md-3">
                             <label for="bairro">Bairro</label>
                             <input type="text" name="bairro" id="bairro"  class="form-control" placeholder="Bairro" value="{{$usuario->endereco->bairro}}">
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-md-3">
                             <label for="complemento">Complemento</label>
                             <input type="text" name="complemento" id="complemento"  class="form-control" placeholder="Complemento" value="{{$usuario->endereco->complemento}}">
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-md-3">
                             <label for="complemento">Tipo Local</label>
                             <input type="text" name="tipo_local" id="tipo_local"  class="form-control" placeholder="Tipo Local" value="{{$usuario->endereco->tipo_local}}">
                         </div>
