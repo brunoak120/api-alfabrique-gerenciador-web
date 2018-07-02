@@ -21,11 +21,11 @@ class CreateEnderecosTable extends Migration
             $table->integer('cidade_id')->unsigned();
             $table->foreign('cidade_id')->references('id')->on('cidades');
 
-            $table->string('bairro', 50);
-            $table->string('tipo_local', 50);
-            $table->string('logradouro', 100);
-            $table->string('numero', 40);
-            $table->string('complemento', 150);
+            $table->string('bairro', 50)->nullable();
+            $table->string('tipo_local', 50)->nullable();
+            $table->string('logradouro', 100)->nullable();
+            $table->string('numero', 40)->nullable();
+            $table->string('complemento', 150)->nullable();
 
             $table->timestamps();
 		});

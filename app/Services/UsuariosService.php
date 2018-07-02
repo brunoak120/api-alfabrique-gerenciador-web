@@ -43,4 +43,15 @@ class UsuariosService
             $this->dificuldadeUsuarioRepository->create(['usuario_id' => $id, 'caracteristica_id' => $caracteristica->id, 'peso' => config('constants.PESO_INICIAL')]);
         }
     }
+
+    public function atualizaUsuario($request, $id)
+    {
+        $usuario = $this->usuariosRepository->find($id);
+        $this->enderecosRepository->updateOrCreate(['id' => $usuario->endereco_id],[
+            'cidade_id' => $request->cidade, 'numero' => $request->numero, 'logradouro' => $request->rua,
+            'bairro' => $request->bairro, 'tipo_local' => $request->tipo_local, 'complemento' => $request->complemento]);
+        $this->usuariosRepository->updateOrCreate(['id' => $id], ['nome' => $request->nome, 'email' => $request->email]);
+    }
+
+
 }
