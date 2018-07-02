@@ -16,6 +16,7 @@ class EnderecoTableSeeder extends Seeder
             [
                 'id' => '1',
                 'cidade_id' => '2701506',
+                'cep' => '79021040',
                 'bairro' => 'Santa Fé',
                 'tipo_local' => 'Casa',
                 'logradouro' => 'R. Eduardo Santos Pereira',
@@ -24,6 +25,7 @@ class EnderecoTableSeeder extends Seeder
             ], [
                 'id' => '2',
                 'cidade_id' => '2701506',
+                'cep' => '79021040',
                 'bairro' => 'Santa Fé',
                 'tipo_local' => 'Casa',
                 'logradouro' => 'R. Eduardo Santos Pereira',
