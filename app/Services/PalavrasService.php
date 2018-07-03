@@ -53,14 +53,14 @@ class PalavrasService
     {
         $palavra = $this->palavrasRepository->find($request->id_palavra);
 
-        $resposta = $this->verificarAcerto($palavra->nome, $request->palavra);
+        $resposta = $this->verificaAcerto($palavra->nome, $request->palavra);
 
         $this->balancearPesos($resposta, $request->tempo, $palavra->nome, $request->palavra);
 
         return $resposta;
     }
 
-    private function verificarAcerto($palavra, $palavraRespondida)
+    private function verificaAcerto($palavra, $palavraRespondida)
     {
         if (strtolower($palavra) == strtolower($palavraRespondida)) {
             return true;
@@ -69,13 +69,30 @@ class PalavrasService
         }
     }
 
+    private function verificaAcertoCaracteristica($posicoes, $palavra, $palavraRespondida) {
+        $letras = str_split(strtolower($palavra));
+        $letrasRespondidas = str_split(strtolower($palavraRespondida));
+        foreach ($posicoes as $posicao){
+            if ($letras[$posicao] != $letrasRespondidas[$posicao]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     private function balancearPesos($acertou, $tempo, $palavra, $palavraRespondida)
     {
         $dificuldades = $this->dificuldadeUsuarioRepository->findWhere(['usuario_id' => config('constants.JOGADOR_ID_TESTE')]);
 
         foreach ($dificuldades as $dificuldade) {
-           $posicoes = $this->retornaPosicoes($palavra, $dificuldade->caracteristica->nome);
-           //VERIFICAR SE AS POSICOES ESTAO COMPATIVEIS COM A PALAVRA RESPONDIDA E BALANCEAR COM O config('constants.PESO_BALANCEAR')
+            $posicoes = $this->retornaPosicoes($palavra, $dificuldade->caracteristica->nome);
+
+            if ($this->verificaAcertoCaracteristica($posicoes, $palavra, $palavraRespondida)) { //ACERTOU AS CARACTERISTICAS
+                $this->dificuldadeUsuarioRepository->update(['peso' => $dificuldade->peso - config('constants.PESO_BALANCEAR')], $dificuldade->id);
+            } else { //ERROU AS CARACTERISTICAS
+                $this->dificuldadeUsuarioRepository->update(['peso' => $dificuldade->peso + config('constants.PESO_BALANCEAR')], $dificuldade->id);
+            }
         }
     }
 
