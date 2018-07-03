@@ -8,7 +8,7 @@ use App\Repositories\EstadoRepository;
 use App\Repositories\UsuarioRepository;
 use App\Services\UsuariosService;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Correios;
 
 class AdminController extends Controller
 {
@@ -58,6 +58,17 @@ class AdminController extends Controller
         $cidades = $this->cidadeRepository->findWhere(['estado_id' => $id]);
 
         return response()->json($cidades);
+    }
+
+    public function getDadosCep($cep)
+    {
+
+        $dados = Correios::cep($cep);
+        $estado = $this->estadosRepository->findWhere(['sigla' => $dados['uf']])->first();
+        $cidade = $this->cidadeRepository->findWhere(['nome' => $dados['cidade']])->first();
+        $resultado = array_merge($dados, ['estado_id' => $estado->id, 'cidade_id' => $cidade->id]);
+
+        return response()->json($resultado);
     }
 
     public function changeProfile(Request $request, $id)

@@ -7,7 +7,6 @@ use App\Repositories\PalavraRepository;
 use App\Http\Controllers\Controller;
 use App\Services\PalavrasService;
 use Illuminate\Http\Request;
-use Correios;
 
 class PalavrasController extends Controller
 {
@@ -127,6 +126,6 @@ class PalavrasController extends Controller
     public function enviarPalavra(Request $request)
     {
         $resposta = $this->palavrasService->avaliarReposta($request);
-        return response()->json(Correios::cep('89062086'));
+        return response()->json($resposta);
     }
 }
