@@ -57,26 +57,20 @@
                              </select>
                         </div>
                         <div class="col-md-5">
-                            <label for="rua">Rua</label>
-                            <input type="text" name="rua" id="rua"  class="form-control" placeholder="Rua" value="{{$usuario->endereco->logradouro}}">
+                            <label for="logradouro">Logradouro</label>
+                            <input type="text" name="logradouro" id="logradouro"  class="form-control" placeholder="Logradouro" value="{{$usuario->endereco->logradouro}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label for="bairro">Bairro</label>
                             <input type="text" name="bairro" id="bairro"  class="form-control" placeholder="Bairro" value="{{$usuario->endereco->bairro}}">
                         </div>
-                        <div class="col-md-3">
-                            <label for="numero">N°</label>
-                            <input type="text" name="numero" id="numero"  class="form-control" placeholder="Número" value="{{$usuario->endereco->numero}}">
-                        </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label for="complemento">Complemento</label>
                             <input type="text" name="complemento" id="complemento"  class="form-control" placeholder="Complemento" value="{{$usuario->endereco->complemento}}">
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label for="complemento">Tipo Local</label>
                             <input type="text" name="tipo_local" id="tipo_local"  class="form-control" placeholder="Tipo Local" value="{{$usuario->endereco->tipo_local}}">
                         </div>

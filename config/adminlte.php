@@ -119,7 +119,7 @@ return [
             'icon' => 'font',
             'submenu' => [
                 [
-                    'text' => 'Adicionar Palavras',
+                    'text' => 'Adicionar Palavra',
                     'icon' => 'plus',
                     'url'  => 'admin/palavras/adicionar',
                 ],
@@ -135,7 +135,7 @@ return [
             'icon' => 'list-ol',
             'submenu' => [
                 [
-                    'text' => 'Adicionar Categorias',
+                    'text' => 'Adicionar Categoria',
                     'icon' => 'plus',
                     'url'  => 'admin/categorias/adicionar',
                 ],
@@ -157,7 +157,7 @@ return [
             'icon' => 'font',
             'submenu' => [
                 [
-                    'text' => 'Adicionar Características',
+                    'text' => 'Adicionar Característica',
                     'icon' => 'plus',
                     'url'  => 'admin/caracteristicas/adicionar',
                 ],
