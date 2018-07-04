@@ -72,6 +72,7 @@ class PalavrasService
     private function verificaAcertoCaracteristica($posicoes, $palavra, $palavraRespondida) {
         $letras = str_split(strtolower($palavra));
         $letrasRespondidas = str_split(strtolower($palavraRespondida));
+
         foreach ($posicoes as $posicao){
             if ($letras[$posicao] != $letrasRespondidas[$posicao]) {
                 return false;
@@ -100,7 +101,6 @@ class PalavrasService
         $inicio = 0;
         $posicoes = [];
         $letras = str_split(strtolower($palavra));
-
 
         foreach ($letras as $index => $letra) {
             if ($letra == $caracteristica AND $caracteristica != config('constants.PALAVRA_PADRAO')) {

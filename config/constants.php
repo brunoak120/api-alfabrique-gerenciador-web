@@ -2,6 +2,8 @@
 
 return [
     'PESO_INICIAL' => 30,
+    'PESO_MIN' => 30,
+    'PESO_MAX' => 999999999,
     'PESO_RANGE' => 15,
     'PESO_BALANCEAR' => 15,
     'JOGADOR_ACESSO' => 2,

@@ -36,4 +36,18 @@ class DificuldadeUsuario extends Model implements Transformable
         return $this->belongsTo(Usuario::class);
     }
 
+    public function setPesoAttribute($peso)
+    {
+        $pesoMinimo = config('constants.PESO_MIN');
+        $pesoMaximo = config('constants.PESO_MAX');
+
+        if ($pesoMinimo > $peso) {
+            $this->attributes['peso'] = $pesoMinimo;
+        } else if ($pesoMaximo < $peso) {
+            $this->attributes['peso'] = $pesoMaximo;
+        } else {
+            $this->attributes['peso'] = $peso;
+        }
+    }
+
 }
