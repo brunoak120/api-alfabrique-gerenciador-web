@@ -35,6 +35,11 @@ class Palavra extends Model implements Transformable
         return $this->belongsTo(Categoria::class);
     }
 
+    public function palavraVisitada()
+    {
+        return $this->hasMany(PalavraVisitada::class);
+    }
+
     public function getImagemAttribute()
     {
 

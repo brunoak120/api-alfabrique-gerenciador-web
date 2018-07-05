@@ -34,6 +34,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Repositories\PalavraRepository::class, \App\Repositories\PalavraRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\DificuldadeUsuarioRepository::class, \App\Repositories\DificuldadeUsuarioRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\CaracteristicasPalavraRepository::class, \App\Repositories\CaracteristicasPalavraRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\PalavrasVisitadasRepository::class, \App\Repositories\PalavrasVisitadasRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\PalavraVisitadaRepository::class, \App\Repositories\PalavraVisitadaRepositoryEloquent::class);
         //:end-bindings:
     }
 }
