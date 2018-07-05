@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\PalavraVisitada;
 use App\Repositories\DificuldadeUsuarioRepository;
 use App\Repositories\PalavraRepository;
 use App\Repositories\UsuarioRepository;
@@ -11,19 +12,22 @@ class PalavrasService
     protected $palavrasRepository;
     protected $usuariosRepository;
     protected $dificuldadeUsuarioRepository;
+    protected $palavraVisitadaRepository;
 
     public function __construct(PalavraRepository $palavraRepository, UsuarioRepository $usuariosRepository,
-                                DificuldadeUsuarioRepository $dificuldadeUsuarioRepository)
+                                DificuldadeUsuarioRepository $dificuldadeUsuarioRepository,
+                                PalavraVisitada $palavraVisitadaRepository)
     {
         $this->palavrasRepository = $palavraRepository;
         $this->usuariosRepository = $usuariosRepository;
         $this->dificuldadeUsuarioRepository = $dificuldadeUsuarioRepository;
+        $this->palavraVisitadaRepository = $palavraVisitadaRepository;
     }
 
     public function buscarPalavra()
     {
         $dificuldades = $this->dificuldadeUsuarioRepository->findWhere(['usuario_id' => config('constants.JOGADOR_ID_TESTE')]);
-        $usuarioPontos = $this->usuariosRepository->findWhere(['id' => config('constants.JOGADOR_ID_TESTE')])->pluck('pontuacao')->get(0);
+        $usuarioPontos = $this->usuariosRepository->findWhere(['id' => config('constants.JOGADOR_ID_TESTE')])->pluck('pontuacao')->first();
         $where = $this->retornaQuery($dificuldades);
         $palavra = $this->palavrasRepository->buscaPalavraCompativel($where, $usuarioPontos);
 
@@ -56,6 +60,8 @@ class PalavrasService
         $resposta = $this->verificaAcerto($palavra->nome, $request->palavra);
 
         $this->balancearPesos($resposta, $request->tempo, $palavra->nome, $request->palavra);
+
+        $this->marcaVisitado($palavra->id, config('constants.JOGADOR_ID_TESTE'));
 
         return $resposta;
     }
@@ -95,6 +101,12 @@ class PalavrasService
                 $this->dificuldadeUsuarioRepository->update(['peso' => $dificuldade->peso + config('constants.PESO_BALANCEAR')], $dificuldade->id);
             }
         }
+    }
+
+    private function marcaVisitado($palavra_id, $usuario_id)
+    {
+        $visita = config('constants.QNT_VISITA');
+        $this->palavraVisitadaRepository->updateOrCreate(['usuario_id' => $usuario_id, 'palavra_id' => $palavra_id], ['vezes_visitado' => $visita]);
     }
 
     private function retornaPosicoes($palavra, $caracteristica){

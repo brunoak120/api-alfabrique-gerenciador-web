@@ -15,6 +15,7 @@ class PalavraVisitada extends Model implements Transformable
 {
     use TransformableTrait;
 
+    protected $table = 'palavras_visitadas';
     /**
      * The attributes that are mass assignable.
      *
@@ -36,9 +37,9 @@ class PalavraVisitada extends Model implements Transformable
         return $this->belongsTo(Palavra::class);
     }
 
-    public function setVezesVisitadoAttribute()
+    public function setVezesVisitadoAttribute($vezes_visitado)
     {
-        $this->attributes['vezes_visitado'] += 1;
+        $this->attributes['vezes_visitado'] += $vezes_visitado;
     }
 
 }

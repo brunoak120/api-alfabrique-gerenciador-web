@@ -8,5 +8,6 @@ return [
     'PESO_BALANCEAR' => 15,
     'JOGADOR_ACESSO' => 2,
     'JOGADOR_ID_TESTE' => 2,
+    'QNT_VISITA' => 1,
     'PALAVRA_PADRAO' => 'Sílabas'
 ];
