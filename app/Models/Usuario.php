@@ -52,6 +52,11 @@ class Usuario extends Authenticatable
         return $this->belongsTo(Endereco::class);
     }
 
+    public function palavraVisitada()
+    {
+        return $this->hasMany(PalavraVisitada::class);
+    }
+
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
