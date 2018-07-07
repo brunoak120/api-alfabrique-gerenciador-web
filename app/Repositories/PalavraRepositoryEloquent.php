@@ -36,12 +36,17 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
 
     public function buscaPalavraCompativel($where, $pontuacao)
     {
+        $jogador_id = config('constants.JOGADOR_ID_TESTE');
         $pesoRange = $pontuacao + config('constants.PESO_RANGE');
-        $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange) {
+
+        $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange, $jogador_id) {
             return $query
                 ->selectRaw("nome, imagem, {$where} AS peso")
-                ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}");
-        })->first();
+                ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}")
+                ->whereRaw("palavras_visitadas.usuario_id = {$jogador_id} OR (SELECT COUNT(*) FROM palavras_visitadas WHERE usuario_id = {$jogador_id} AND palavra_id = palavras_visitadas.palavra_id) > 0")
+                ->leftjoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id")
+                ->orderby("palavras_visitadas.vezes_visitado", "asc");
+        })->all();
 
         return $resultado;
     }
