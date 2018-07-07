@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Services\ConfigsService;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\PalavraRepository;
@@ -37,7 +38,7 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
     public function buscaPalavraCompativel($where, $pontuacao)
     {
         $jogador_id = config('constants.JOGADOR_ID_TESTE');
-        $pesoRange = $pontuacao + config('constants.PESO_RANGE');
+        $pesoRange = $pontuacao + ConfigsService::pesoRange();
 
         $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange, $jogador_id) {
             return $query

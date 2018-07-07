@@ -96,16 +96,16 @@ class PalavrasService
             $posicoes = $this->retornaPosicoes($palavra, $dificuldade->caracteristica->nome);
 
             if ($this->verificaAcertoCaracteristica($posicoes, $palavra, $palavraRespondida)) { //ACERTOU AS CARACTERISTICAS
-                $this->dificuldadeUsuarioRepository->update(['peso' => $dificuldade->peso - config('constants.PESO_BALANCEAR')], $dificuldade->id);
+                $this->dificuldadeUsuarioRepository->update(['peso' => $dificuldade->peso - ConfigsService::pesoBalancearAcerto()], $dificuldade->id);
             } else { //ERROU AS CARACTERISTICAS
-                $this->dificuldadeUsuarioRepository->update(['peso' => $dificuldade->peso + config('constants.PESO_BALANCEAR')], $dificuldade->id);
+                $this->dificuldadeUsuarioRepository->update(['peso' => $dificuldade->peso + ConfigsService::pesoBalancearErro()], $dificuldade->id);
             }
         }
     }
 
     private function marcaVisitado($palavra_id, $usuario_id)
     {
-        $visita = config('constants.QNT_VISITA');
+        $visita = ConfigsService::qntVisita();
         $this->palavraVisitadaRepository->updateOrCreate(['usuario_id' => $usuario_id, 'palavra_id' => $palavra_id], ['vezes_visitado' => $visita]);
     }
 
