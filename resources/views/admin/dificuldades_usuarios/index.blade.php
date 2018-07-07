@@ -27,10 +27,10 @@
                         <table class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>Usuário</th>
-                                <th>Característica</th>
-                                <th>Peso</th>
-                                <th>Editar</th>
+                                <th class="col-md-3">Usuário</th>
+                                <th class="col-md-5">Característica</th>
+                                <th class="col-md-2">Peso</th>
+                                <th class="col-md-2">Editar</th>
                             </tr>
                             </thead>
                             <tbody>

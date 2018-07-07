@@ -31,9 +31,9 @@
                         <table class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>Valor</th>
-                                <th>Funções</th>
+                                <th class="col-md-6">Nome</th>
+                                <th class="col-md-4">Valor</th>
+                                <th class="col-md-2">Funções</th>
                             </tr>
                             </thead>
                             <tbody>

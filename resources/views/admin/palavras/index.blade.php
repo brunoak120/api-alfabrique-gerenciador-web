@@ -27,9 +27,9 @@
                         <table class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>Categoria</th>
-                                <th>Nome</th>
-                                <th>Ação</th>
+                                <th class="col-md-2">Categoria</th>
+                                <th class="col-md-8">Nome</th>
+                                <th class="col-md-2">Ação</th>
                             </tr>
                             </thead>
                             <tbody>
