@@ -6,13 +6,17 @@
 
     <section class="content">
         <h3> Configurações </h3>
+        <div class="callout callout-info" style="margin-bottom: 5px!important;">
+            <h4><i class="fa fa-info"></i> Descrição:</h4>
+            {{$config->descricao}}
+        </div>
         <div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="box-title">Listagem de Configurações</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="{{route('caracteristicas.update', $config->id)}}" method="post" role="form" enctype="multipart/form-data">
+            <form action="{{route('configs.update', $config->id)}}" method="post" role="form" enctype="multipart/form-data">
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <div class="box-body">
@@ -23,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <label for="descricao">Valor</label>
-                        <input type="number" name="descricao" id="descricao" class="form-control" placeholder="Valor da Configuração" value="{{$config->valor}}">
+                        <input type="number" name="valor" id="valor" class="form-control" placeholder="Valor da Configuração" value="{{$config->valor}}">
                     </div>
                 </div>
                 <!-- /.box-body -->

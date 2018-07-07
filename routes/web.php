@@ -20,6 +20,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 
     Route::get('/configs', 'ConfigsController@index')->name('configs.index');
     Route::get('/configs/editar/{id}', 'ConfigsController@show')->name('configs.show');
+    Route::put('/configs/editar/{id}', 'ConfigsController@update')->name('configs.update');
 
     Route::get('/settings', 'AdminController@pass')->name('admin.pass');
     Route::get('/profile/get-cidades/{id}', 'AdminController@getCidades')->name('admin.get_cidades');

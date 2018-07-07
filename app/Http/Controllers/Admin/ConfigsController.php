@@ -28,4 +28,12 @@ class ConfigsController extends Controller
 
         return view('admin.configs.show', compact('config'));
     }
+
+    public function update(Request $request, $id)
+    {
+        $this->configRepository->update(['valor' => $request->valor], $id);
+
+        flash('Configuração atualizada com sucesso.')->success();
+        return redirect()->back();
+    }
 }

@@ -20,6 +20,7 @@ class CreateConfigsTable extends Migration
 
             $table->string('nome', 100);
             $table->integer('valor');
+            $table->text('descricao');
 
             $table->timestamps();
 		});
