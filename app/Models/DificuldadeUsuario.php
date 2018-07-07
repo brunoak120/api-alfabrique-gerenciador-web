@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\ConfigsService;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
@@ -38,8 +39,8 @@ class DificuldadeUsuario extends Model implements Transformable
 
     public function setPesoAttribute($peso)
     {
-        $pesoMinimo = config('constants.PESO_MIN');
-        $pesoMaximo = config('constants.PESO_MAX');
+        $pesoMinimo = ConfigsService::pesoMin();
+        $pesoMaximo = ConfigsService::pesoMax();
 
         if ($pesoMinimo > $peso) {
             $this->attributes['peso'] = $pesoMinimo;

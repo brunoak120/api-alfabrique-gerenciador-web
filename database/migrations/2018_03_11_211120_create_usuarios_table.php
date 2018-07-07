@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Services\ConfigsService;
 
 /**
  * Class CreateUsuariosTable.
@@ -27,7 +28,7 @@ class CreateUsuariosTable extends Migration
             $table->string('nome', 100);
             $table->string('email', 100)->unique();
             $table->string('password');
-            $table->integer('pontuacao')->default(config('constants.PESO_INICIAL'))->nullable();
+            $table->integer('pontuacao')->default(config('constants.PONTUACAO_INICIAL_JOGADOR'))->nullable();
 
             $table->rememberToken();
             $table->timestamps();

@@ -39,7 +39,9 @@ class PalavraVisitada extends Model implements Transformable
 
     public function setVezesVisitadoAttribute($vezes_visitado)
     {
-        $this->attributes['vezes_visitado'] += $vezes_visitado;
+        if (isset($this->attributes['vezes_visitado'])){
+            $this->attributes['vezes_visitado'] += $vezes_visitado;
+        }
     }
 
 }

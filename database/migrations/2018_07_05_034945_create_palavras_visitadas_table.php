@@ -24,7 +24,7 @@ class CreatePalavrasVisitadasTable extends Migration
             $table->integer('palavra_id')->unsigned();
             $table->foreign('palavra_id')->references('id')->on('palavras')->onDelete('cascade');
 
-            $table->integer('vezes_visitado')->default(0)->unsigned();
+            $table->integer('vezes_visitado')->default(1)->unsigned();
 
             $table->timestamps();
 		});
