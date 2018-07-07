@@ -42,7 +42,7 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
 
         $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange, $jogador_id) {
             return $query
-                ->selectRaw("nome, imagem, {$where} AS peso")
+                ->selectRaw("palavras.id, nome, imagem, {$where} AS peso")
                 ->whereRaw("(palavras_visitadas.usuario_id = {$jogador_id} OR palavras_visitadas.id IS NULL)")
                 ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}")
                 ->leftjoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id")
