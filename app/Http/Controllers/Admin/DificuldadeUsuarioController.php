@@ -17,7 +17,7 @@ class DificuldadeUsuarioController extends Controller
 
     public function index()
     {
-        $dificuldadesUsuarios = $this->dificuldadeUsuarioRepository->all();
+        $dificuldadesUsuarios = $this->dificuldadeUsuarioRepository->paginate(15);
 
         return view('admin.dificuldades_usuarios.index', compact('dificuldadesUsuarios'));
     }

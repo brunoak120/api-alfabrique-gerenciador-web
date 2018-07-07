@@ -17,7 +17,7 @@ class ConfigsController extends Controller
 
     public function index()
     {
-        $configs = $this->configRepository->all();
+        $configs = $this->configRepository->paginate(15);
 
         return view('admin.configs.index', compact('configs'));
     }

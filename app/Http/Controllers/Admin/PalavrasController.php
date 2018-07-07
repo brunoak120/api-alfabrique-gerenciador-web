@@ -23,7 +23,7 @@ class PalavrasController extends Controller
 
     public function index()
     {
-        $palavras = $this->palavraRepository->all();
+        $palavras = $this->palavraRepository->paginate(15);
         return view('admin.palavras.index', compact('palavras'));
     }
 
