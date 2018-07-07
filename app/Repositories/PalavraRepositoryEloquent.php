@@ -46,7 +46,7 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
                 ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}")
                 ->leftjoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id")
                 ->orderby("palavras_visitadas.vezes_visitado", "asc");
-        })->all();
+        })->first();
 
         return $resultado;
     }
