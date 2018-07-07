@@ -18,6 +18,7 @@ class CaracteristicasController extends Controller
     public function index()
     {
         $caracteristicas = $this->caracteristicasRepository->all();
+
         return view('admin.caracteristicas.index', compact('caracteristicas'));
     }
 

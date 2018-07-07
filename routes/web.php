@@ -18,6 +18,9 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::get('/', 'AdminController@index')->name('admin.index');
 
+    Route::get('/configs', 'ConfigsController@index')->name('configs.index');
+    Route::get('/configs/editar/{id}', 'ConfigsController@show')->name('configs.show');
+
     Route::get('/settings', 'AdminController@pass')->name('admin.pass');
     Route::get('/profile/get-cidades/{id}', 'AdminController@getCidades')->name('admin.get_cidades');
     Route::get('/profile/get-dados-cep/{cep}', 'AdminController@getDadosCep')->name('admin.get_dados_cep');

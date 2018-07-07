@@ -179,6 +179,11 @@ return [
                 ]
             ]
         ],
+        [
+            'text' => 'Avançado',
+            'icon' => 'gear',
+            'url' => 'admin/configs',
+        ],
         'Configurações de Conta',
         [
             'text' => 'Perfil',

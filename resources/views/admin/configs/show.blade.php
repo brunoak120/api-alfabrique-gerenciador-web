@@ -5,32 +5,32 @@
 @section('content')
 
     <section class="content">
-        <h3> Categorias </h3>
+        <h3> Configurações </h3>
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Editar Caracteristica</h3>
+                <h3 class="box-title">Listagem de Configurações</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="{{route('caracteristicas.update', $caracteristica->id)}}" method="post" role="form" enctype="multipart/form-data">
+            <form action="{{route('caracteristicas.update', $config->id)}}" method="post" role="form" enctype="multipart/form-data">
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <div class="box-body">
                     @include('flash::message')
                     <div class="form-group">
-                        <label for="nome">Categoria</label>
-                        <input type="input" name="nome" id="nome"  class="form-control" placeholder="Nome da palavra" value="{{$caracteristica->nome}}">
+                        <label for="nome">Nome</label>
+                        <input name="nome" id="nome"  class="form-control" placeholder="Nome da Configuração" value="{{$config->nome}}" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="descricao">Descrição</label>
-                        <textarea name="descricao" id="descricao"  class="form-control" placeholder="Descrição da caracteristica">{{$caracteristica->descricao}}</textarea>
+                        <label for="descricao">Valor</label>
+                        <input type="number" name="descricao" id="descricao" class="form-control" placeholder="Valor da Configuração" value="{{$config->valor}}">
                     </div>
                 </div>
                 <!-- /.box-body -->
 
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Atualizar</button>
-                    <a href="{{route('caracteristicas.index')}}" class="btn btn-default">Voltar</a>
+                    <a href="{{route('configs.index')}}" class="btn btn-default">Voltar</a>
                 </div>
             </form>
         </div>
