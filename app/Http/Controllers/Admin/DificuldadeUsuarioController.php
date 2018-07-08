@@ -15,9 +15,15 @@ class DificuldadeUsuarioController extends Controller
         $this->dificuldadeUsuarioRepository = $dificuldadeUsuarioRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $dificuldadesUsuarios = $this->dificuldadeUsuarioRepository->paginate(15);
+        $dificuldadesUsuarios = $this->dificuldadeUsuarioRepository->buscaTodasDificuldadesUsuarios();
+
+        if ($request->ajax()) {
+            $dificuldadesUsuarios = $this->dificuldadeUsuarioRepository->buscaDificuldadesUsuariosAjax($request->dificuldade_usuario);
+
+            return view('admin.dificuldades_usuarios.load', compact('dificuldadesUsuarios'))->render();
+        }
 
         return view('admin.dificuldades_usuarios.index', compact('dificuldadesUsuarios'));
     }
