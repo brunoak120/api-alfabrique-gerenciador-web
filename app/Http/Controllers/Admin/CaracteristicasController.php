@@ -15,11 +15,18 @@ class CaracteristicasController extends Controller
         $this->caracteristicasRepository = $caracteristicasRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $caracteristicas = $this->caracteristicasRepository->paginate(15);
+        $caracteristicas = $this->caracteristicasRepository->buscaTodasCaracteristicas();
+
+        if ($request->ajax()) {
+            $caracteristicas = $this->caracteristicasRepository->buscaCaracteristicaAjax($request->caracteristica);
+
+            return view('admin.caracteristicas.load', compact('caracteristicas'))->render();
+        }
 
         return view('admin.caracteristicas.index', compact('caracteristicas'));
+
     }
 
     public function create()

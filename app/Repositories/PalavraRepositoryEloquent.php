@@ -60,7 +60,6 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
                 ->where("palavras.nome", "LIKE", "%{$palavra}%")
                 ->orWhere("categorias.nome", "LIKE", "%{$palavra}%")
                 ->join("categorias", "palavras.categoria_id", "=", "categorias.id");
-                //->orderby("palavras.nome", "asc");
         })->paginate(15);
 
         return $resultado;
@@ -72,7 +71,6 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
             return $query
                 ->selectRaw("palavras.id, palavras.nome, categorias.nome as categoria_nome")
                 ->join("categorias", "palavras.categoria_id", "=", "categorias.id");
-                //->orderby("palavras.nome", "asc");
         })->paginate(15);
 
         return $resultado;

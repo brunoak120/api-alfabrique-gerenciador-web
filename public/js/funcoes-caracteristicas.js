@@ -48,3 +48,45 @@ $(document).on("click", ".removeCaracteristica", function () {
         }
     });
 });
+
+//FUNCOES DE BUSCA DINAMICA
+$('#botao_buscar_caracteristicas').on('click', function () {
+    var url = $(this).attr('href');
+    var caracteristica = $('#buscar_caracteristica').val();
+    preparaBusca(url, caracteristica);
+});
+
+$("#buscar_caracteristica").on('keyup', function (e) {
+    if (e.keyCode == 13) {
+        var url = $(this).attr('href');
+        var caracteristica = $('#buscar_caracteristica').val();
+        preparaBusca(url, caracteristica);
+    }
+});
+
+$('body').on('click', '.pagination a', function(e) {
+    e.preventDefault();
+
+    var url = $(this).attr('href');
+    var caracteristica = $('#buscar_caracteristica').val();
+    preparaBusca(url, caracteristica);
+});
+
+function preparaBusca(url, caracteristica){
+    buscarCaracteristicas(url, caracteristica);
+    window.history.pushState("", "", url);
+}
+
+function buscarCaracteristicas(url, caracteristica) {
+    $.ajax({
+        url : url,
+        data: {
+            caracteristica: caracteristica
+        }
+    }).done(function (data) {
+        $('#caracteristicas_renderiza').html(data);
+        $('#buscar_caracteristica').val(caracteristica);
+    }).fail(function (data) {
+        console.log(data);
+    });
+}

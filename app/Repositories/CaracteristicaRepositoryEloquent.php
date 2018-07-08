@@ -34,5 +34,26 @@ class CaracteristicaRepositoryEloquent extends BaseRepository implements Caracte
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
+    public function buscaCaracteristicaAjax($caracteristica)
+    {
+        $resultado = $this->scopeQuery(function ($query) use($caracteristica) {
+            return $query
+                ->selectRaw("id, nome")
+                ->where("caracteristicas.nome", "LIKE", "%{$caracteristica}%")
+                ->orWhere("caracteristicas.id", "LIKE", "%{$caracteristica}%");
+        })->paginate(15);
+
+        return $resultado;
+    }
+
+    public function buscaTodasCaracteristicas()
+    {
+        $resultado = $this->scopeQuery(function ($query) {
+            return $query
+                ->selectRaw("id, nome");
+        })->paginate(15);
+
+        return $resultado;
+    }
 }

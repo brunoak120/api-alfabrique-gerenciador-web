@@ -87,7 +87,7 @@ function buscarPalavras(url, palavra) {
         }
     }).done(function (data) {
         $('#palavras_renderiza').html(data);
-        $('#busca_tabela_palavras').val(palavra);
+        $('#buscar_palavra').val(palavra);
     }).fail(function (data) {
         console.log(data);
     });

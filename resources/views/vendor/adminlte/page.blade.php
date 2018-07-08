@@ -138,7 +138,6 @@
     <script src="{{ asset('js/requisicao-ajax.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{ asset('js/sweet-alert-categorias.js') }}"></script>
-    <script src="{{ asset('js/sweet-alert-caracteristicas.js') }}"></script>
     <script src="{{ asset('js/profile-ajax.js') }}"></script>
     @stack('js')
     @yield('js')
