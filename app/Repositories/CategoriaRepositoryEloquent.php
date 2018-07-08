@@ -34,5 +34,27 @@ class CategoriaRepositoryEloquent extends BaseRepository implements CategoriaRep
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    public function buscaCategoriasAjax($categoria)
+    {
+        $resultado = $this->scopeQuery(function ($query) use($categoria) {
+            return $query
+                ->selectRaw("id, nome")
+                ->where("categorias.nome", "LIKE", "%{$categoria}%")
+                ->orWhere("categorias.id", "LIKE", "%{$categoria}%");
+        })->paginate(15);
+
+        return $resultado;
+    }
+
+    public function buscaTodasCategorias()
+    {
+        $resultado = $this->scopeQuery(function ($query) {
+            return $query
+                ->selectRaw("id, nome");
+        })->paginate(15);
+
+        return $resultado;
+    }
     
 }

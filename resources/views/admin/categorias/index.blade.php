@@ -2,6 +2,10 @@
 
 @section('title', 'Painel Palavras')
 
+@push('js')
+    <script src="{{ asset('js/funcoes-categorias.js') }}"></script>
+@endpush
+
 @section('content')
 
     <section class="content">
@@ -13,40 +17,17 @@
                         <h3 class="box-title">Listagem de Categorias</h3>
                         <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control pull-right" placeholder="Buscar">
+                                <input type="text" name="busca_categoria" id="busca_categoria" class="form-control pull-right" placeholder="Buscar">
 
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    <button type="submit" class="btn btn-default" id="botao_busca_categoria"><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        @include('flash::message')
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th class="col-md-10">Nome</th>
-                                <th class="col-md-2">Ação</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($categorias as $categoria)
-                                <tr>
-                                    <td>{{ $categoria->nome }}</td>
-                                        <td>
-                                            <a href="{{route('categorias.show', $categoria->id)}}" title="Editar Categoria" class="btn btn-warning glyphicon glyphicon-pencil"></a>
-                                            <a data-id="{{$categoria->id}}" class="btn btn-danger glyphicon glyphicon-remove removeCategoria" title="Excluir Categoria"></a>
-                                        </td>
-                                </tr>
-                            @endforeach
-
-                            </tbody>
-                        </table>
-                        {{$categorias->links()}}
-                    </div>
-                    <!-- /.box-body -->
+                    <section id="categorias_renderiza">
+                        @include('admin.categorias.load')
+                    </section>
                 </div>
                 <!-- /.box -->
             </div>

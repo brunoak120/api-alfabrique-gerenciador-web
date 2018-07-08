@@ -16,11 +16,18 @@ class CategoriasController extends Controller
 
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $categorias = $this->categoriaRepository->paginate(15);
+        $categorias = $this->categoriaRepository->buscaTodasCategorias();
+
+        if ($request->ajax()) {
+            $categorias = $this->categoriaRepository->buscaCategoriasAjax($request->categoria);
+
+            return view('admin.categorias.load', compact('categorias'))->render();
+        }
 
         return view('admin.categorias.index', compact('categorias'));
+
     }
 
     public function show($id)

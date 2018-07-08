@@ -51,3 +51,45 @@ $(document).on("click", ".removeCategoria", function () {
         }
     });
 });
+
+//FUNCOES DE BUSCA DINAMICA
+$('#botao_busca_categoria').on('click', function () {
+    var url = $(this).attr('href');
+    var caracteristica = $('#busca_categoria').val();
+    preparaBusca(url, categoria);
+});
+
+$("#busca_categoria").on('keyup', function (e) {
+    if (e.keyCode == 13) {
+        var url = $(this).attr('href');
+        var categoria = $('#busca_categoria').val();
+        preparaBusca(url, categoria);
+    }
+});
+
+$('body').on('click', '.pagination a', function(e) {
+    e.preventDefault();
+
+    var url = $(this).attr('href');
+    var categoria = $('#busca_categoria').val();
+    preparaBusca(url, categoria);
+});
+
+function preparaBusca(url, categoria){
+    buscarCategoria(url, categoria);
+    window.history.pushState("", "", url);
+}
+
+function buscarCategoria(url, categoria) {
+    $.ajax({
+        url : url,
+        data: {
+            categoria: categoria
+        }
+    }).done(function (data) {
+        $('#categorias_renderiza').html(data);
+        $('#busca_categoria').val(categoria);
+    }).fail(function (data) {
+        console.log(data);
+    });
+}
