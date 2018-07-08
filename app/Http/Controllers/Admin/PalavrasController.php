@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Palavra;
 use App\Repositories\CategoriaRepository;
 use App\Repositories\PalavraRepository;
 use App\Http\Controllers\Controller;
@@ -21,9 +22,15 @@ class PalavrasController extends Controller
         $this->categoriaRepository = $categoriaRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $palavras = $this->palavraRepository->paginate(15);
+        $palavras = $this->palavraRepository->buscaTodasPalavras();
+
+        if ($request->ajax()) {
+            $palavras = $this->palavraRepository->buscaPalavraAjax($request->palavra);
+
+            return view('admin.palavras.load', compact('palavras'))->render();
+        }
         return view('admin.palavras.index', compact('palavras'));
     }
 
@@ -128,4 +135,5 @@ class PalavrasController extends Controller
         $resposta = $this->palavrasService->avaliarReposta($request);
         return response()->json($resposta);
     }
+
 }

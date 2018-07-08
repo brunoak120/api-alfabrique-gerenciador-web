@@ -6,7 +6,7 @@ $('#estado').change(function () {
 $('#cep').blur(function () {
     var cep = $(this).val();
     $.get('/admin/profile/get-dados-cep/' + cep, function (resultado) {
-        console.log(resultado);
+        //console.log(resultado);
         $('#logradouro').val(resultado.logradouro);
         $('#bairro').val(resultado.bairro);
         $('#estado option[value=' + resultado.estado_id + ']').attr('selected','selected');

@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::get('/palavras/editar/{id}', 'PalavrasController@show')->name('palavras.show');
     Route::put('/palavras/editar/{id}', 'PalavrasController@update')->name('palavras.update');
     Route::delete('/palavras/delete', 'PalavrasController@destroy')->name('palavras.destroy');
+    Route::get('/palavras/buscar/{palavra}', 'PalavrasController@search')->name('palavras.search');
 
     Route::get('/categorias', 'CategoriasController@index')->name('categorias.index');
     Route::get('/categorias/adicionar', 'CategoriasController@create')->name('categorias.create');
