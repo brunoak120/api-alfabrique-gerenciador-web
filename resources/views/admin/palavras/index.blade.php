@@ -2,8 +2,11 @@
 
 @section('title', 'Painel Palavras')
 
-@section('content')
+@push('js')
+    <script src="{{ asset('js/funcoes-palavras.js') }}"></script>
+@endpush
 
+@section('content')
     <section class="content">
         <h3> Palavras </h3>
         <div class="row">
@@ -11,34 +14,19 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Listagem de Palavras</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        @include('flash::message')
-                        <table id="date_picker" class="table table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th>Categoria</th>
-                                <th>Nome</th>
-                                <th>Ação</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($palavras as $palavra)
-                                <tr>
-                                    <td>{{ $palavra->categoria->nome }}</td>
-                                    <td>{{ $palavra->nome }}</td>
-                                        <td>
-                                            <a href="{{route('palavras.show', $palavra->id)}}" title="Editar Palavra" class="btn btn-warning glyphicon glyphicon-pencil"></a>
-                                            <a data-id="{{$palavra->id}}" class="btn btn-danger glyphicon glyphicon-remove removePalavra" title="Excluir Palavra"></a>
-                                        </td>
-                                </tr>
-                            @endforeach
+                        <div class="box-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="buscar_palavra" id="buscar_palavra" class="form-control pull-right" placeholder="Buscar">
 
-                            </tbody>
-                        </table>
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default" id="botao_buscar_palavras"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.box-body -->
+                    <section id="palavras_renderiza">
+                        @include('admin.palavras.load')
+                    </section>
                 </div>
                 <!-- /.box -->
             </div>
@@ -47,3 +35,4 @@
         <!-- /.row -->
     </section>
 @stop
+

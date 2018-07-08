@@ -2,6 +2,10 @@
 
 @section('title', 'Painel Palavras')
 
+@push('js')
+    <script src="{{ asset('js/funcoes-caracteristicas.js') }}"></script>
+@endpush
+
 @section('content')
 
     <section class="content">
@@ -11,36 +15,19 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Listagem de Caracteristicas</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        @include('flash::message')
-                        <table id="date_picker" class="table table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Ação</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($caracteristicas as $caracteristica)
-                                <tr>
-                                    <td>{{ $caracteristica->nome }}</td>
-                                        <td>
-                                            @if ($caracteristica->id > 1)
-                                            <a href="{{route('caracteristicas.show', $caracteristica->id)}}" title="Editar Caracteristica" class="btn btn-warning glyphicon glyphicon-pencil"></a>
-                                            <a data-id="{{$caracteristica->id}}" class="btn btn-danger glyphicon glyphicon-remove removeCaracteristica" title="Excluir Caracteristica"></a>
-                                            @else
-                                            <i class="btn btn-danger glyphicon glyphicon-warning-sign" title="Característica Padrão"></i>
-                                            @endif
-                                        </td>
-                                </tr>
-                            @endforeach
+                        <div class="box-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="buscar_caracteristica" id="buscar_caracteristica" class="form-control pull-right" placeholder="Buscar">
 
-                            </tbody>
-                        </table>
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default" id="botao_buscar_caracteristicas"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.box-body -->
+                    <section id="caracteristicas_renderiza">
+                        @include('admin.caracteristicas.load')
+                    </section>
                 </div>
                 <!-- /.box -->
             </div>

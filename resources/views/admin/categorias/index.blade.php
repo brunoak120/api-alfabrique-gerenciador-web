@@ -2,6 +2,10 @@
 
 @section('title', 'Painel Palavras')
 
+@push('js')
+    <script src="{{ asset('js/funcoes-categorias.js') }}"></script>
+@endpush
+
 @section('content')
 
     <section class="content">
@@ -11,32 +15,19 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Listagem de Categorias</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        @include('flash::message')
-                        <table id="date_picker" class="table table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Ação</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($categorias as $categoria)
-                                <tr>
-                                    <td>{{ $categoria->nome }}</td>
-                                        <td>
-                                            <a href="{{route('categorias.show', $categoria->id)}}" title="Editar Categoria" class="btn btn-warning glyphicon glyphicon-pencil"></a>
-                                            <a data-id="{{$categoria->id}}" class="btn btn-danger glyphicon glyphicon-remove removeCategoria" title="Excluir Categoria"></a>
-                                        </td>
-                                </tr>
-                            @endforeach
+                        <div class="box-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="busca_categoria" id="busca_categoria" class="form-control pull-right" placeholder="Buscar">
 
-                            </tbody>
-                        </table>
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default" id="botao_busca_categoria"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.box-body -->
+                    <section id="categorias_renderiza">
+                        @include('admin.categorias.load')
+                    </section>
                 </div>
                 <!-- /.box -->
             </div>

@@ -3,6 +3,7 @@
 @section('adminlte_css')
     <link rel="stylesheet"
           href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 'blue') . '.min.css')}} ">
+    <link rel="stylesheet" href="{{ asset('css/loader.css')}} ">
     @stack('css')
     @yield('css')
 @stop
@@ -15,7 +16,9 @@
 
 @section('body')
     <div class="wrapper">
-
+        <div class="container-loader" style="display: none">
+            <div class="loader">Loading...</div>
+        </div>
         <!-- Main Header -->
         <header class="main-header">
             @if(config('adminlte.layout') == 'top-nav')
@@ -132,12 +135,8 @@
 
 @section('adminlte_js')
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
-    <script src="{{ asset('js/datepicker_config.js') }}"></script>
     <script src="{{ asset('js/requisicao-ajax.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="{{ asset('js/sweet-alert-categorias.js') }}"></script>
-    <script src="{{ asset('js/sweet-alert-palavras.js') }}"></script>
-    <script src="{{ asset('js/sweet-alert-caracteristicas.js') }}"></script>
     <script src="{{ asset('js/profile-ajax.js') }}"></script>
     @stack('js')
     @yield('js')

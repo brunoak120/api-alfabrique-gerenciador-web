@@ -51,5 +51,29 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
 
         return $resultado;
     }
+
+    public function buscaPalavraAjax($palavra)
+    {
+        $resultado = $this->scopeQuery(function ($query) use($palavra) {
+            return $query
+                ->selectRaw("palavras.id, palavras.nome, categorias.nome as categoria_nome")
+                ->where("palavras.nome", "LIKE", "%{$palavra}%")
+                ->orWhere("categorias.nome", "LIKE", "%{$palavra}%")
+                ->join("categorias", "palavras.categoria_id", "=", "categorias.id");
+        })->paginate(15);
+
+        return $resultado;
+    }
+
+    public function buscaTodasPalavras()
+    {
+        $resultado = $this->scopeQuery(function ($query) {
+            return $query
+                ->selectRaw("palavras.id, palavras.nome, categorias.nome as categoria_nome")
+                ->join("categorias", "palavras.categoria_id", "=", "categorias.id");
+        })->paginate(15);
+
+        return $resultado;
+    }
     
 }

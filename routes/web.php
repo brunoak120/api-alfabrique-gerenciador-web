@@ -18,6 +18,10 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::get('/', 'AdminController@index')->name('admin.index');
 
+    Route::get('/configs', 'ConfigsController@index')->name('configs.index');
+    Route::get('/configs/editar/{id}', 'ConfigsController@show')->name('configs.show');
+    Route::put('/configs/editar/{id}', 'ConfigsController@update')->name('configs.update');
+
     Route::get('/settings', 'AdminController@pass')->name('admin.pass');
     Route::get('/profile/get-cidades/{id}', 'AdminController@getCidades')->name('admin.get_cidades');
     Route::get('/profile/get-dados-cep/{cep}', 'AdminController@getDadosCep')->name('admin.get_dados_cep');
@@ -31,6 +35,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::get('/palavras/editar/{id}', 'PalavrasController@show')->name('palavras.show');
     Route::put('/palavras/editar/{id}', 'PalavrasController@update')->name('palavras.update');
     Route::delete('/palavras/delete', 'PalavrasController@destroy')->name('palavras.destroy');
+    Route::get('/palavras/buscar/{palavra}', 'PalavrasController@search')->name('palavras.search');
 
     Route::get('/categorias', 'CategoriasController@index')->name('categorias.index');
     Route::get('/categorias/adicionar', 'CategoriasController@create')->name('categorias.create');

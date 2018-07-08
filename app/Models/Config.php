@@ -20,6 +20,10 @@ class Config extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'nome',
+        'valor',
+        'descricao'
+    ];
 
 }

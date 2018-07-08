@@ -30,6 +30,7 @@
 
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Atualizar</button>
+                    <a href="{{route('caracteristicas.index')}}" class="btn btn-default">Voltar</a>
                 </div>
             </form>
         </div>

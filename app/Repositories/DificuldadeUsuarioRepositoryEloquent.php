@@ -34,5 +34,31 @@ class DificuldadeUsuarioRepositoryEloquent extends BaseRepository implements Dif
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
+    public function buscaDificuldadesUsuariosAjax($dificuldade_usuario)
+    {
+        $resultado = $this->scopeQuery(function ($query) use($dificuldade_usuario) {
+            return $query
+                ->selectRaw("dificuldade_usuarios.id, caracteristicas.nome as caracteristica_nome, usuarios.nome as usuario_nome, peso")
+                ->where("caracteristicas.nome", "LIKE", "%{$dificuldade_usuario}%")
+                ->orWhere("usuarios.nome", "LIKE", "%{$dificuldade_usuario}%")
+                ->orWhere("dificuldade_usuarios.peso", "LIKE", "%{$dificuldade_usuario}%")
+                ->join('usuarios', 'dificuldade_usuarios.usuario_id', '=', 'usuarios.id')
+                ->join('caracteristicas', 'dificuldade_usuarios.caracteristica_id', '=', 'caracteristicas.id');
+        })->paginate(15);
+
+        return $resultado;
+    }
+
+    public function buscaTodasDificuldadesUsuarios()
+    {
+        $resultado = $this->scopeQuery(function ($query) {
+            return $query
+                ->selectRaw("dificuldade_usuarios.id, caracteristicas.nome as caracteristica_nome, usuarios.nome as usuario_nome, peso")
+                ->join('usuarios', 'dificuldade_usuarios.usuario_id', '=', 'usuarios.id')
+                ->join('caracteristicas', 'dificuldade_usuarios.caracteristica_id', '=', 'caracteristicas.id');
+        })->paginate(15);
+
+        return $resultado;
+    }
 }

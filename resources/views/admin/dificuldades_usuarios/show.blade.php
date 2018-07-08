@@ -34,6 +34,7 @@
 
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Atualizar</button>
+                    <a href="{{route('dificuldades_usuarios.index')}}" class="btn btn-default">Voltar</a>
                 </div>
             </form>
         </div>
