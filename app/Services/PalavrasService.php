@@ -26,8 +26,8 @@ class PalavrasService
 
     public function buscarPalavra()
     {
-        $dificuldades = $this->dificuldadeUsuarioRepository->findWhere(['usuario_id' => config('constants.JOGADOR_ID_TESTE')]);
-        $usuarioPontos = $this->usuariosRepository->findWhere(['id' => config('constants.JOGADOR_ID_TESTE')])->pluck('pontuacao')->first();
+        $dificuldades = $this->dificuldadeUsuarioRepository->findWhere(['usuario_id' => auth()->user()->id]);
+        $usuarioPontos = $this->usuariosRepository->findWhere(['id' => auth()->user()->id])->pluck('pontuacao')->first();
         $where = $this->retornaQuery($dificuldades);
         $palavra = $this->palavrasRepository->buscaPalavraCompativel($where, $usuarioPontos);
 
@@ -90,7 +90,7 @@ class PalavrasService
 
     private function balancearPesos($acertou, $tempo, $palavra, $palavraRespondida)
     {
-        $dificuldades = $this->dificuldadeUsuarioRepository->findWhere(['usuario_id' => config('constants.JOGADOR_ID_TESTE')]);
+        $dificuldades = $this->dificuldadeUsuarioRepository->findWhere(['usuario_id' => auth()->user()->id]);
 
         foreach ($dificuldades as $dificuldade) {
             $posicoes = $this->retornaPosicoes($palavra, $dificuldade->caracteristica->nome);

@@ -37,7 +37,7 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
 
     public function buscaPalavraCompativel($where, $pontuacao)
     {
-        $jogador_id = config('constants.JOGADOR_ID_TESTE');
+        $jogador_id = auth()->user()->id;
         $pesoRange = $pontuacao + ConfigsService::pesoRange();
 
         $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange, $jogador_id) {
