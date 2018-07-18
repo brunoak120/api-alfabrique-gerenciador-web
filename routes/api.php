@@ -13,20 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => ['api'], 'namespace' => 'Admin'], function() {
+    Route::post('usuario/registrar', 'APIRegisterController@register');
+    Route::post('usuario/login', 'APILoginController@login');
 });
 
-Route::get('usuario/adicionar', 'UsuariosController@store')->name('usuarios.store');
-
-Route::get('usuarios', 'UsuariosController@index')->name('usuarios.index');*/
-
-/*Route::group(['middleware' => 'auth:api'], function () {
-
-});*/
-
-Route::group(['middleware' => ['api'], 'namespace' => 'Admin'], function() {
-    Route::post('usuario/adicionar', 'UsuariosController@store');
+Route::group(['middleware' => ['jwt.auth'], 'namespace' => 'Admin'], function() {
     Route::get('buscarPalavra', 'PalavrasController@buscarPalavra');
     Route::post('enviarPalavra', 'PalavrasController@enviarPalavra');
 });

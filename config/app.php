@@ -182,7 +182,8 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
-        Cagartner\CorreiosConsulta\ServiceProvider::class
+        Cagartner\CorreiosConsulta\ServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class
 
     ],
 
@@ -233,6 +234,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Correios'    => Cagartner\CorreiosConsulta\Facade::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
 
     ],
 

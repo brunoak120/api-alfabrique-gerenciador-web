@@ -10,6 +10,5 @@ return [
     'JOGADOR_NIVEL_ACESSO' => 7,
     'QNT_VISITA' => 8,
     'PONTUACAO_INICIAL_JOGADOR' => 30,
-    'JOGADOR_ID_TESTE' => 2,
     'PALAVRA_PADRAO' => 'Sílabas'
 ];
