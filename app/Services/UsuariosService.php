@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\CaracteristicaRepository;
+use App\Repositories\CidadeRepository;
 use App\Repositories\DificuldadeUsuarioRepository;
 use App\Repositories\EnderecoRepository;
 use App\Repositories\UsuarioRepository;
@@ -11,24 +12,29 @@ class UsuariosService
 {
     protected $usuariosRepository;
     protected $enderecosRepository;
+    protected $cidadeRepository;
     protected $caracteristicasRepository;
     protected $dificuldadeUsuarioRepository;
 
     public function __construct(UsuarioRepository $usuariosRepository,
                                 EnderecoRepository $enderecosRepository,
+                                CidadeRepository $cidadeRepository,
                                 CaracteristicaRepository $caracteristicasRepository,
                                 DificuldadeUsuarioRepository $dificuldadeUsuarioRepository)
     {
 
         $this->usuariosRepository = $usuariosRepository;
         $this->enderecosRepository = $enderecosRepository;
+        $this->cidadeRepository = $cidadeRepository;
         $this->caracteristicasRepository = $caracteristicasRepository;
         $this->dificuldadeUsuarioRepository = $dificuldadeUsuarioRepository;
     }
 
     public function adicionaUsuario($request)
     {
-        $usuario = $this->usuariosRepository->create($request);
+        $cidade_id = $this->cidadeRepository->buscarCidade(['cidade' => $request['cidade'], 'estado' => $request['estado']]);
+        $endereco = $this->enderecosRepository->create(['cidade_id' => $cidade_id, 'bairro' => $request['bairro'], 'logradouro' => $request['logradouro']]);
+        $usuario = $this->usuariosRepository->create(['endereco_id' => $endereco->id, 'nome' => $request['nome'], 'email' => $request['email'], 'password' => $request['senha']]);
 
         $this->preparaDificuldadeInicialUsuario($usuario->id);
 

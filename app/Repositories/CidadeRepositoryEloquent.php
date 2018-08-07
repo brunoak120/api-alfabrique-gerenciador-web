@@ -34,5 +34,17 @@ class CidadeRepositoryEloquent extends BaseRepository implements CidadeRepositor
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    public function buscarCidade($dados)
+    {
+        $resultado = $this->scopeQuery(function ($query) use ($dados) {
+            return $query->selectRaw('cidades.id')
+                ->where("cidades.nome", "=", "{$dados['cidade']}")
+                ->Where("estados.nome", "=", "{$dados['estado']}")
+                ->join("estados", "cidades.estado_id", "=", "estados.id");
+        })->first()->id;
+
+        return $resultado;
+    }
     
 }
