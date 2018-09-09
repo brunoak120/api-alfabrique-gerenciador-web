@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\PalavrasCreateRequest;
 use App\Models\Palavra;
 use App\Repositories\CategoriaRepository;
 use App\Repositories\PalavraRepository;
@@ -40,7 +41,7 @@ class PalavrasController extends Controller
         return view('admin.palavras.create', compact('categorias'));
     }
 
-    public function store(Request $request)
+    public function store(PalavrasCreateRequest $request)
     {
         $upload = $this->adicionaImagem($request);
 

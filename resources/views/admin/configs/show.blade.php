@@ -20,6 +20,7 @@
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <div class="box-body">
+                    @include('admin.errors._check_form')
                     @include('flash::message')
                     <div class="form-group">
                         <label for="nome">Nome</label>

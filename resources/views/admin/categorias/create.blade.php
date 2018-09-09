@@ -15,6 +15,7 @@
             <form action="{{route('categorias.store')}}" method="post" role="form" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="box-body">
+                    @include('admin.errors._check_form')
                     @include('flash::message')
                     <div class="form-group">
                         <label for="nome">Categoria</label>
