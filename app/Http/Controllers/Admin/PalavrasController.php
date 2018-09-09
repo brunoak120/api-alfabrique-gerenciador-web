@@ -133,7 +133,8 @@ class PalavrasController extends Controller
     public function enviarPalavra(Request $request)
     {
         $resposta = $this->palavrasService->avaliarReposta($request);
-        return response()->json($resposta);
+
+        return response()->json(['resposta' => $resposta]);
     }
 
 }
