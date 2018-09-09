@@ -61,7 +61,7 @@ class PalavrasService
 
         $this->balancearPesos($resposta, $request->tempo, $palavra->nome, $request->palavra);
 
-        $this->marcaVisitado($palavra->id, config('constants.JOGADOR_ID_TESTE'));
+        $this->marcaVisitado($palavra->id);
 
         return $resposta;
     }
@@ -103,10 +103,10 @@ class PalavrasService
         }
     }
 
-    private function marcaVisitado($palavra_id, $usuario_id)
+    private function marcaVisitado($palavra_id)
     {
         $visita = ConfigsService::qntVisita();
-        $this->palavraVisitadaRepository->updateOrCreate(['usuario_id' => $usuario_id, 'palavra_id' => $palavra_id], ['vezes_visitado' => $visita]);
+        $this->palavraVisitadaRepository->updateOrCreate(['usuario_id' => auth()->user()->id, 'palavra_id' => $palavra_id], ['vezes_visitado' => $visita]);
     }
 
     private function retornaPosicoes($palavra, $caracteristica){
