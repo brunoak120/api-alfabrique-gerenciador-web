@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\ConfigsService;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -60,6 +61,20 @@ class Usuario extends Authenticatable
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function setPontuacaoAttribute($pontuacao)
+    {
+        $pesoMinimo = ConfigsService::pesoMin();
+        $pesoMaximo = ConfigsService::pesoMax();
+
+        if ($pesoMinimo > $pontuacao) {
+            $this->attributes['pontuacao'] = $pesoMinimo;
+        } else if ($pesoMaximo < $pontuacao) {
+            $this->attributes['pontuacao'] = $pesoMaximo;
+        } else {
+            $this->attributes['pontuacao'] = $pontuacao;
+        }
     }
 
 }
