@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DificuldadeUsuarioRequest;
 use App\Repositories\DificuldadeUsuarioRepository;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class DificuldadeUsuarioController extends Controller
         return view('admin.dificuldades_usuarios.show', compact('dificuldadeUsuario'));
     }
 
-    public function update(Request $request, $id)
+    public function update(DificuldadeUsuarioRequest $request, $id)
     {
         $this->dificuldadeUsuarioRepository->update(['peso' => $request->peso], $id);
 

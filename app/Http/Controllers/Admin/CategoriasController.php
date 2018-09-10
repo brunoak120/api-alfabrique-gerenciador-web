@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\CategoriasCreateRequest;
+use App\Http\Requests\CategoriasUpdateRequest;
 use App\Repositories\CategoriaRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -42,7 +44,7 @@ class CategoriasController extends Controller
         return view('admin.categorias.create');
     }
 
-    public function store(Request $request)
+    public function store(CategoriasCreateRequest $request)
     {
         $this->categoriaRepository->create($request->all());
 
@@ -50,7 +52,7 @@ class CategoriasController extends Controller
         return redirect()->back();
     }
 
-    public function update(Request $request, $id)
+    public function update(CategoriasUpdateRequest $request, $id)
     {
         $this->categoriaRepository->update($request->all(), $id);
 

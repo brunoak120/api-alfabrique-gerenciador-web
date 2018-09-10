@@ -101,6 +101,13 @@ class PalavrasService
                 $this->dificuldadeUsuarioRepository->update(['peso' => $dificuldade->peso + ConfigsService::pesoBalancearErro()], $dificuldade->id);
             }
         }
+
+        //MUDA O PESO DE POTUACAO DO JOGADOR SE ELE ACETA OU ERRA AS PALAVRAS
+        if ($acertou) {
+            $this->usuariosRepository->update(['pontuacao' => auth()->user()->pontuacao + ConfigsService::pesoBalancearAcerto()], auth()->user()->id);
+        } else {
+            $this->usuariosRepository->update(['pontuacao' => auth()->user()->pontuacao - ConfigsService::pesoBalancearErro()], auth()->user()->id);
+        }
     }
 
     private function marcaVisitado($palavra_id)

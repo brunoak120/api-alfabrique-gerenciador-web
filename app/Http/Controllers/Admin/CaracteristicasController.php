@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CaracteristicasCreateRequest;
+use App\Http\Requests\CaracteristicasUpdateRequest;
 use App\Repositories\CaracteristicaRepository;
 use Illuminate\Http\Request;
 
@@ -34,7 +36,7 @@ class CaracteristicasController extends Controller
         return view('admin.caracteristicas.create');
     }
 
-    public function store(Request $request)
+    public function store(CaracteristicasCreateRequest $request)
     {
         $this->caracteristicasRepository->create($request->all());
 
@@ -49,7 +51,7 @@ class CaracteristicasController extends Controller
         return view('admin.caracteristicas.show', compact('caracteristica'));
     }
 
-    public function update(Request $request, $id)
+    public function update(CaracteristicasUpdateRequest $request, $id)
     {
         $this->caracteristicasRepository->update($request->all(), $id);
 
