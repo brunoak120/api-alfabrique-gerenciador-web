@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PalavrasUpdateRequest extends FormRequest
 {
@@ -24,7 +25,10 @@ class PalavrasUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|unique:palavras',
+            'nome' => [
+                'required',
+                Rule::unique('palavras')->ignore($this->id)
+            ],
             'categoria_id' => 'required'
         ];
     }
@@ -32,9 +36,9 @@ class PalavrasUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'nome.required' => 'Por favor, preencha o campo Nome da Palavra :attribute',
-            'nome.unique' => 'A palavra ":input" já está sendo usada',
-            'categoria_id.required' => 'Por favor, preencha o campo de Categoria'
+            'nome.required' => 'Por favor, preencha o campo Nome da Palavra.',
+            'nome.unique' => 'A palavra ":input" já está sendo usada.',
+            'categoria_id.required' => 'Por favor, preencha o campo de Categoria.'
         ];
     }
 }

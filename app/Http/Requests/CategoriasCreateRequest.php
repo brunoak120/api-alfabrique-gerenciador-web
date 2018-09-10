@@ -24,15 +24,16 @@ class CategoriasCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'categoria' => 'required|min:5'
+            'nome' => 'required|min:5|unique:categorias'
         ];
     }
 
     public function messages()
     {
         return [
-            'categoria.required' => 'Por favor, preencha o campo CATEGORIA.',
-            'categoria.min' => 'Por favor, informe um CATEGORIA de no mínimo :min caracteres.',
+            'nome.required' => 'Por favor, preencha o campo Nome da categoria.',
+            'nome.min' => 'Por favor, informe o Nome da categoria de no mínimo :min caracteres.',
+            'nome.unique' => 'Nome ":input" como categoria já existente.',
         ];
     }
 }

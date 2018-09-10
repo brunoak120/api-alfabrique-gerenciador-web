@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\PalavrasCreateRequest;
+use App\Http\Requests\PalavrasUpdateRequest;
 use App\Models\Palavra;
 use App\Repositories\CategoriaRepository;
 use App\Repositories\PalavraRepository;
@@ -63,7 +64,7 @@ class PalavrasController extends Controller
         return view('admin.palavras.show', compact('palavra', 'categorias', 'imagem'));
     }
 
-    public function update(Request $request, $id)
+    public function update(PalavrasUpdateRequest $request, $id)
     {
         $upload = $this->adicionaImagem($request);
 

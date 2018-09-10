@@ -33,7 +33,7 @@ class PalavrasCreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'nome.required' => 'Por favor, preencha o campo Nome da Palavra :attribute',
+            'nome.required' => 'Por favor, preencha o campo Nome da Palavra.',
             'nome.unique' => 'A palavra ":input" já está sendo usada',
             'categoria_id.required' => 'Por favor, preencha o campo de Categoria'
         ];

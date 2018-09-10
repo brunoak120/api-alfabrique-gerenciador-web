@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CategoriasUpdateRequest extends FormRequest
 {
@@ -24,15 +25,16 @@ class CategoriasUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'categoria' => 'required|min:5'
+            'nome' => 'required|min:5|' . Rule::unique('categorias')->ignore($this->id)
         ];
     }
 
     public function messages()
     {
         return [
-            'categoria.required' => 'Por favor, preencha o campo CATEGORIA.',
-            'categoria.min' => 'Por favor, informe um CATEGORIA de no mínimo :min caracteres.',
+            'nome.required' => 'Por favor, preencha o campo Nome da categoria.',
+            'nome.min' => 'Por favor, informe um Nome da categoria de no mínimo :min caracteres.',
+            'nome.unique' => 'Nome ":input" como categoria já existente.'
         ];
     }
 }
