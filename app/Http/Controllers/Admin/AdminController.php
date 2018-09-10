@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdminChangePassRequest;
 use App\Repositories\CidadeRepository;
 use App\Repositories\EstadoRepository;
 use App\Repositories\UsuarioRepository;
 use App\Services\UsuariosService;
 use Illuminate\Http\Request;
 use Correios;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -35,8 +37,13 @@ class AdminController extends Controller
         return view('admin.pass');
     }
 
-    public function change_pass(Request $request, $id)
+    public function change_pass(AdminChangePassRequest $request, $id)
     {
+        if(!Hash::check($request->old_pass, auth()->user()->getAuthPassword())) {
+           flash('Senha antiga não confere.')->error();
+           return redirect()->back();
+        }
+
         $this->usuarioRepository->update(['password' => $request->new_pass], $id);
 
         flash('Senha alterada com sucesso.')->success();
