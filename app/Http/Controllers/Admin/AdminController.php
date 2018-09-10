@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminChangePassRequest;
+use App\Http\Requests\AdminChangeProfileRequest;
 use App\Repositories\CidadeRepository;
 use App\Repositories\EstadoRepository;
 use App\Repositories\UsuarioRepository;
@@ -78,7 +79,7 @@ class AdminController extends Controller
         return response()->json($resultado);
     }
 
-    public function changeProfile(Request $request, $id)
+    public function changeProfile(AdminChangeProfileRequest $request, $id)
     {
         $this->usuariosService->atualizaUsuario($request, $id);
 

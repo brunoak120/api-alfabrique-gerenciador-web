@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class AdminChangeProfileRequest extends FormRequest
 {
@@ -24,15 +25,19 @@ class AdminChangeProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'categoria' => 'required|min:5'
+            'nome' => 'required|min:5',
+            'email' => 'required|email|' . Rule::unique('usuarios')->ignore($this->id),
         ];
     }
 
     public function messages()
     {
         return [
-            'categoria.required' => 'Por favor, preencha o campo CATEGORIA.',
-            'categoria.min' => 'Por favor, informe um CATEGORIA de no mínimo :min caracteres.',
+            'nome.required' => 'Por favor, preencha seu nome.',
+            'nome.min' => 'Por favor, informe um Nome de no mínimo :min caracteres.',
+            'email.required' => 'Por favor, preencha o campo e-mail.',
+            'email.email' => 'Por favor, preencha um e-mail com formato válido.',
+            'email.unique' => 'E-mail ":input" já está sendo usado.',
         ];
     }
 }
