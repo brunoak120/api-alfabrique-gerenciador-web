@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ConfigsUpdateRequest;
 use App\Repositories\ConfigRepository;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class ConfigsController extends Controller
         return view('admin.configs.show', compact('config'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ConfigsUpdateRequest $request, $id)
     {
         $this->configRepository->update(['valor' => $request->valor], $id);
 

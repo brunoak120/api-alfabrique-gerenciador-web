@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+use Illuminate\Validation\Rule;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,15 +25,20 @@ class CaracteristicasUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'categoria' => 'required|min:5'
+            'nome' => 'required|min:1|' . Rule::unique('caracteristicas')->ignore($this->id),
+            'descricao' => 'required|min:5|max:500'
         ];
     }
 
     public function messages()
     {
         return [
-            'categoria.required' => 'Por favor, preencha o campo CATEGORIA.',
-            'categoria.min' => 'Por favor, informe um CATEGORIA de no mínimo :min caracteres.',
+            'nome.required' => 'Por favor, preencha o campo Nome da caracteristica.',
+            'nome.min' => 'Por favor, informe um Nome da caracteristica de no mínimo :min caracteres.',
+            'nome.unique' => 'Nome ":input" como caracteristica já está sendo utilizado.',
+            'descricao.required' => 'Por favor, preencha o campo de Descrição.',
+            'descricao.min' => 'Por favor, informe uma Descrição de no mínimo :min caracteres.',
+            'descricao.max' => 'Por favor, informe uma Descrição de no mínimo :max caracteres.',
         ];
     }
 }
