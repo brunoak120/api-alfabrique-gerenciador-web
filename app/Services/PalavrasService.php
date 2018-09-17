@@ -31,6 +31,10 @@ class PalavrasService
         $where = $this->retornaQuery($dificuldades);
         $palavra = $this->palavrasRepository->buscaPalavraCompativel($where, $usuarioPontos);
 
+        if ($palavra == null) {
+            $palavra = $this->palavrasRepository->buscaPalavraCompativelSemFiltro($where, $usuarioPontos);
+        }
+
         return $palavra;
     }
 
