@@ -24,15 +24,18 @@ class APILoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'categoria' => 'required|min:5'
+            'email' => 'required|email',
+            'password' => 'required|min:6'
         ];
     }
 
     public function messages()
     {
         return [
-            'categoria.required' => 'Por favor, preencha o campo CATEGORIA.',
-            'categoria.min' => 'Por favor, informe um CATEGORIA de no mínimo :min caracteres.',
+            'email.required' => 'Por favor, preencha o campo Email.',
+            'email.email' => 'Por favor, informe um Email válido.',
+            'password.required' => 'Por favor, informe sua senha.',
+            'password.min' => 'Por favor, a senha deve conter no mínimo 6 caracteres.',
         ];
     }
 }
