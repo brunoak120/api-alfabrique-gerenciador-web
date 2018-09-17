@@ -24,15 +24,24 @@ class APIRegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'categoria' => 'required|min:5'
+            'nome' => 'required',
+            'email' => 'required|email|unique:usuarios',
+            'senha' => 'required|min:6',
+            'confirmarSenha' => 'required|min:6|same:senha'
         ];
     }
 
     public function messages()
     {
         return [
-            'categoria.required' => 'Por favor, preencha o campo CATEGORIA.',
-            'categoria.min' => 'Por favor, informe um CATEGORIA de no mínimo :min caracteres.',
+            'email.required' => 'Por favor, preencha o campo Email.',
+            'email.email' => 'Por favor, informe um Email válido.',
+            'senha.required' => 'Por favor, informe sua senha.',
+            'email.unique' => 'Este e-mail já está em uso.',
+            'senha.min' => 'Sua senha deve conter no mínimo 6 caracteres.',
+            'confirmarSenha.same' => 'Senhas não conferem.',
+            'confirmarSenha.required' => 'Por favor, confirme sua senha.',
+            'confirmarSenha.min' => 'Confirme a senha com no mínimo 6 caracteres.',
         ];
     }
 }
