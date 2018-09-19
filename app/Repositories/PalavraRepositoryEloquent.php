@@ -42,10 +42,11 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
 
         $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange, $jogador_id) {
             return $query
-                ->selectRaw("palavras.id, nome, imagem, {$where} AS peso")
+                ->selectRaw("palavras.id, palavras.nome, imagem, {$where} AS peso, categorias.nome as categoria")
                 //->whereRaw("(palavras_visitadas.usuario_id = {$jogador_id} OR palavras_visitadas.id IS NULL)")
                 ->whereRaw("(palavras_visitadas.palavra_id NOT IN (SELECT palavra_id FROM palavras_visitadas WHERE usuario_id = {$jogador_id}))")
                 ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}")
+                ->join("categorias", "palavras.categoria_id", "=", "categorias.id")
                 ->leftjoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id")
                 ->orderby("palavras_visitadas.vezes_visitado", "asc");
         })->first();
@@ -60,10 +61,11 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
 
         $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange, $jogador_id) {
             return $query
-                ->selectRaw("palavras.id, nome, imagem, {$where} AS peso")
+                ->selectRaw("palavras.id, palavras.nome, imagem, {$where} AS peso, categorias.nome as categoria")
                 //->whereRaw("(palavras_visitadas.usuario_id = {$jogador_id} OR palavras_visitadas.id IS NULL)")
                 //->whereRaw("(palavras_visitadas.palavra_id NOT IN (SELECT palavra_id FROM palavras_visitadas WHERE usuario_id = {$jogador_id}))")
                 ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}")
+                ->join("categorias", "palavras.categoria_id", "=", "categorias.id")
                 ->leftjoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id")
                 ->orderby("palavras_visitadas.vezes_visitado", "asc");
         })->first();
