@@ -44,20 +44,22 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
             return $query
                 ->selectRaw("palavras.id, palavras.nome, imagem, {$where} AS peso, categorias.nome as categoria")
                 //->whereRaw("(palavras_visitadas.usuario_id = {$jogador_id} OR palavras_visitadas.id IS NULL)")
-                ->whereRaw("(palavras_visitadas.palavra_id NOT IN (SELECT palavra_id FROM palavras_visitadas WHERE usuario_id = {$jogador_id}))")
+                //->whereRaw("(palavras_visitadas.palavra_id NOT IN (SELECT palavra_id FROM palavras_visitadas WHERE usuario_id = {$jogador_id}))")
                 ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}")
                 ->join("categorias", "palavras.categoria_id", "=", "categorias.id")
                 ->leftjoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id")
-                ->orderby("palavras_visitadas.vezes_visitado", "asc");
+                ->orderby("palavras_visitadas.vezes_visitado", "asc")
+                ->inRandomOrder();
         })->first();
 
         return $resultado;
     }
 
-    public function buscaPalavraCompativelSemFiltro($where, $pontuacao)
+    public function buscaPalavraCompativelSemFiltro($where, $pontuacao, $range)
     {
         $jogador_id = auth()->user()->id;
-        $pesoRange = $pontuacao + ConfigsService::pesoRange();
+        $pesoRange = $pontuacao + ConfigsService::pesoRange() - $range;
+        $pontuacao += $range;
 
         $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange, $jogador_id) {
             return $query
@@ -67,7 +69,8 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
                 ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}")
                 ->join("categorias", "palavras.categoria_id", "=", "categorias.id")
                 ->leftjoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id")
-                ->orderby("palavras_visitadas.vezes_visitado", "asc");
+                ->orderby("palavras_visitadas.vezes_visitado", "asc")
+                ->inRandomOrder();
         })->first();
 
         return $resultado;
