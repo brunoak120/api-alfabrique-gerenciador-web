@@ -8,12 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller {
 
-    protected $usuarioRepository;
-
-    public function __construct(UsuarioRepository $usuarioRepository) {
-        $this->usuarioRepository = $usuarioRepository;
-    }
-
     public function login(Request $request) {
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'nivel_acesso_id' => config('constants.ADMIN')])) {
