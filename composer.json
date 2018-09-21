@@ -9,6 +9,7 @@
         "barryvdh/laravel-ide-helper": "^2.4",
         "cagartner/correios-consulta": "^0.1.10",
         "fideloper/proxy": "~3.3",
+        "fx3costa/laravelchartjs": "^2.5",
         "jeroennoten/laravel-adminlte": "^1.23",
         "laracasts/flash": "^3.0",
         "laravel/framework": "5.5.*",

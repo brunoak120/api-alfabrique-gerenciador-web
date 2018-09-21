@@ -183,7 +183,8 @@ return [
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
         Cagartner\CorreiosConsulta\ServiceProvider::class,
-        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class
 
     ],
 

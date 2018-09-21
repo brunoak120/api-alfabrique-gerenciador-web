@@ -34,5 +34,22 @@ class UsuarioRepositoryEloquent extends BaseRepository implements UsuarioReposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    public function retonaEstadosUsuarios()
+    {
+        $admin = config('constants.ADMIN');
+
+        $resultado = $this->scopeQuery(function ($query) use ($admin) {
+            return $query
+                ->selectRaw("estados.nome as nome_estado, COUNT(usuarios.id) as quantidade_pessoas")
+                ->whereRaw("usuarios.nivel_acesso_id <> {$admin}")
+                ->join("enderecos", "usuarios.endereco_id", "=", "enderecos.id")
+                ->join("cidades", "enderecos.cidade_id", "=", "cidades.id")
+                ->join("estados", "cidades.estado_id", "=", "estados.id")
+                ->groupBy("estados.nome");
+        });
+
+        return $resultado;
+    }
     
 }
