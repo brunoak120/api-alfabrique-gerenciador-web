@@ -60,3 +60,8 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 });
 
 Auth::routes();
+
+Route::post('/login_admin', [
+    'uses' => 'LoginController@login',
+    'as' => 'login.admin'
+]);

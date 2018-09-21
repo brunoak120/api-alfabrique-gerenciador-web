@@ -91,7 +91,7 @@ return [
 
     'logout_method' => null,
 
-    'login_url' => 'login',
+    'login_url' => 'login_admin',
 
     'register_url' => 'register',
 

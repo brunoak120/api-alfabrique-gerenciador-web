@@ -31,8 +31,20 @@ class PalavrasService
         $where = $this->retornaQuery($dificuldades);
         $palavra = $this->palavrasRepository->buscaPalavraCompativel($where, $usuarioPontos);
 
-        if ($palavra == null) {
-            $palavra = $this->palavrasRepository->buscaPalavraCompativelSemFiltro($where, $usuarioPontos);
+       /* if ($palavra == null) {
+            $this->buscarPalavraSituacional($where, $usuarioPontos);
+        }*/
+
+        return $palavra;
+    }
+
+    public function buscarPalavraSituacional ($where, $usuarioPontos) {
+        $range = 5;
+        $palavra = null;
+
+        while ($palavra == null) {
+            $palavra = $this->palavrasRepository->buscaPalavraCompativelSemFiltro($where, $usuarioPontos, $range);
+            $range = $range + 5;
         }
 
         return $palavra;
@@ -48,9 +60,9 @@ class PalavrasService
             } else if ($dificuldade->caracteristica->nome == 'Sílabas' AND $index == count($dificuldades) - 1) {
                 $sql .= "silabas * {$dificuldade->peso}";
             } else if ($index == count($dificuldades) - 1) {
-                $sql .= "ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), '{$dificuldade->caracteristica->nome}', ''))) / LENGTH('{$dificuldade->caracteristica->nome}')) * {$dificuldade->peso}";
+                $sql .= "ROUND((LENGTH(LOWER(palavras.nome)) - LENGTH(REPLACE(LOWER(palavras.nome), '{$dificuldade->caracteristica->nome}', ''))) / LENGTH('{$dificuldade->caracteristica->nome}')) * {$dificuldade->peso}";
             } else {
-                $sql .= "ROUND((LENGTH(LOWER(nome)) - LENGTH(REPLACE(LOWER(nome), '{$dificuldade->caracteristica->nome}', ''))) / LENGTH('{$dificuldade->caracteristica->nome}')) * {$dificuldade->peso} + ";
+                $sql .= "ROUND((LENGTH(LOWER(palavras.nome)) - LENGTH(REPLACE(LOWER(palavras.nome), '{$dificuldade->caracteristica->nome}', ''))) / LENGTH('{$dificuldade->caracteristica->nome}')) * {$dificuldade->peso} + ";
             }
         }
 

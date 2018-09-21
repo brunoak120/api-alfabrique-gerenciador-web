@@ -10,5 +10,6 @@ return [
     'JOGADOR_NIVEL_ACESSO' => 7,
     'QNT_VISITA' => 8,
     'PONTUACAO_INICIAL_JOGADOR' => 30,
-    'PALAVRA_PADRAO' => 'Sílabas'
+    'PALAVRA_PADRAO' => 'Sílabas',
+    'ADMIN' => 1
 ];
