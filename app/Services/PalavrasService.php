@@ -31,11 +31,11 @@ class PalavrasService
         $palavra = $this->palavrasRepository->buscaPalavraNaoVisitada($where, $usuarioPontos);
 
         if ($palavra == null) {
-            $this->palavrasRepository->buscaPalavraVisitada($where, $usuarioPontos);
+            $palavra = $this->palavrasRepository->buscaPalavraVisitada($where, $usuarioPontos);
         }
 
         if ($palavra == null) {
-            $this->palavrasRepository->buscaPalavraDesafio($where, $usuarioPontos);
+            $palavra = $this->palavrasRepository->buscaPalavraDesafio($where, $usuarioPontos);
         }
 
         return $palavra;
