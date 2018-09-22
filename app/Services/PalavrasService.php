@@ -24,27 +24,18 @@ class PalavrasService
         $this->palavraVisitadaRepository = $palavraVisitadaRepository;
     }
 
-    public function buscarPalavra()
-    {
+    public function buscarPalavra() {
         $dificuldades = $this->dificuldadeUsuarioRepository->findWhere(['usuario_id' => auth()->user()->id]);
         $usuarioPontos = $this->usuariosRepository->findWhere(['id' => auth()->user()->id])->pluck('pontuacao')->first();
         $where = $this->retornaQuery($dificuldades);
-        $palavra = $this->palavrasRepository->buscaPalavraCompativel($where, $usuarioPontos);
+        $palavra = $this->palavrasRepository->buscaPalavraNaoVisitada($where, $usuarioPontos);
 
-       /* if ($palavra == null) {
-            $this->buscarPalavraSituacional($where, $usuarioPontos);
-        }*/
+        if ($palavra == null) {
+            $this->palavrasRepository->buscaPalavraVisitada($where, $usuarioPontos);
+        }
 
-        return $palavra;
-    }
-
-    public function buscarPalavraSituacional ($where, $usuarioPontos) {
-        $range = 5;
-        $palavra = null;
-
-        while ($palavra == null) {
-            $palavra = $this->palavrasRepository->buscaPalavraCompativelSemFiltro($where, $usuarioPontos, $range);
-            $range = $range + 5;
+        if ($palavra == null) {
+            $this->palavrasRepository->buscaPalavraDesafio($where, $usuarioPontos);
         }
 
         return $palavra;
