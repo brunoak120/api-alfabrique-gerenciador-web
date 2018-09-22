@@ -31,7 +31,7 @@ class PalavrasService
         $palavra = $this->palavrasRepository->buscaPalavraNaoVisitada($where, $usuarioPontos);
 
         if ($palavra == null) {
-            $palavra = $this->palavrasRepository->buscaPalavraVisitada($where, $usuarioPontos);
+            $palavra = $this->palavrasRepository->buscaPalavraNaoVisitadaRangeMaior($where, $usuarioPontos);
         }
 
         if ($palavra == null) {

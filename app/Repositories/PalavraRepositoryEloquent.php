@@ -46,7 +46,27 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
                 ->whereRaw("palavras_visitadas.palavra_id IS NULL")
                 ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}")
                 ->join("categorias", "palavras.categoria_id", "=", "categorias.id")
-                ->leftJoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id");
+                ->leftJoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id")
+                ->inRandomOrder();
+        })->first();
+
+        return $resultado;
+    }
+
+    public function buscaPalavraNaoVisitadaRangeMaior($where, $pontuacao)
+    {
+        $jogador_id = auth()->user()->id;
+        $pesoRange = $pontuacao + (ConfigsService::pesoRange() * 2);
+        $pontuacao = $pontuacao - ConfigsService::pesoRange();
+
+        $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange, $jogador_id) {
+            return $query
+                ->selectRaw("palavras.id, palavras.nome, imagem, {$where} AS peso, categorias.nome as categoria")
+                ->whereRaw("palavras_visitadas.palavra_id IS NULL")
+                ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}")
+                ->join("categorias", "palavras.categoria_id", "=", "categorias.id")
+                ->leftJoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id")
+                ->inRandomOrder();
         })->first();
 
         return $resultado;
