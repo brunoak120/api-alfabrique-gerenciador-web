@@ -35,7 +35,24 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-    public function buscaPalavraCompativel($where, $pontuacao)
+    public function buscaPalavraNaoVisitada($where, $pontuacao)
+    {
+        $jogador_id = auth()->user()->id;
+        $pesoRange = $pontuacao + ConfigsService::pesoRange();
+
+        $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange, $jogador_id) {
+            return $query
+                ->selectRaw("palavras.id, palavras.nome, imagem, {$where} AS peso, categorias.nome as categoria")
+                ->whereRaw("(palavras_visitadas.palavra_id NOT IN (SELECT palavra_id FROM palavras_visitadas WHERE usuario_id = {$jogador_id}))")
+                ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}")
+                ->join("categorias", "palavras.categoria_id", "=", "categorias.id")
+                ->leftjoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id");
+        })->first();
+
+        return $resultado;
+    }
+
+    public function buscaPalavraVisitada($where, $pontuacao)
     {
         $jogador_id = auth()->user()->id;
         $pesoRange = $pontuacao + ConfigsService::pesoRange();
@@ -48,28 +65,23 @@ class PalavraRepositoryEloquent extends BaseRepository implements PalavraReposit
                 ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}")
                 ->join("categorias", "palavras.categoria_id", "=", "categorias.id")
                 ->leftjoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id")
-                ->orderby("palavras_visitadas.vezes_visitado", "asc")
-                ->inRandomOrder();
+                ->orderby("palavras_visitadas.vezes_visitado", "asc");
         })->first();
 
         return $resultado;
     }
 
-    public function buscaPalavraCompativelSemFiltro($where, $pontuacao, $range)
+    public function buscaPalavraDesafio($where, $pontuacao)
     {
         $jogador_id = auth()->user()->id;
-        $pesoRange = $pontuacao + ConfigsService::pesoRange() - $range;
-        $pontuacao += $range;
+        $pesoRange = $pontuacao + ConfigsService::pesoRange();
 
         $resultado = $this->scopeQuery(function ($query) use ($where, $pontuacao, $pesoRange, $jogador_id) {
             return $query
                 ->selectRaw("palavras.id, palavras.nome, imagem, {$where} AS peso, categorias.nome as categoria")
-                //->whereRaw("(palavras_visitadas.usuario_id = {$jogador_id} OR palavras_visitadas.id IS NULL)")
-                //->whereRaw("(palavras_visitadas.palavra_id NOT IN (SELECT palavra_id FROM palavras_visitadas WHERE usuario_id = {$jogador_id}))")
-                ->whereRaw("{$where} >= {$pontuacao} AND {$where} <= {$pesoRange}")
+                ->whereRaw("(palavras_visitadas.palavra_id NOT IN (SELECT palavra_id FROM palavras_visitadas WHERE usuario_id = {$jogador_id}))")
                 ->join("categorias", "palavras.categoria_id", "=", "categorias.id")
                 ->leftjoin("palavras_visitadas", "palavras.id", "=", "palavras_visitadas.palavra_id")
-                ->orderby("palavras_visitadas.vezes_visitado", "asc")
                 ->inRandomOrder();
         })->first();
 
