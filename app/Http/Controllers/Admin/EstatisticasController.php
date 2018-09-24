@@ -14,9 +14,16 @@ class EstatisticasController extends Controller
         $this->graficoPieEstatisticasService = $graficoPieEstatisticasService;
     }
 
-    public function index() {
+    public function jogadoresEstados() {
         $chartjs = $this->graficoPieEstatisticasService->retornaChartjsMediaJogadoresEstados();
 
-        return view('admin.estatisticas.index', compact('chartjs'));
+        return view('admin.estatisticas.jogadores.estados', compact('chartjs'));
+    }
+
+    public function jogadoresRanking()
+    {
+        $chartjs = $this->graficoPieEstatisticasService->retornaChartjsMediaJogadoresRanking();
+
+        return view('admin.estatisticas.jogadores.ranking', compact('chartjs'));
     }
 }

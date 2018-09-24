@@ -56,7 +56,8 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::put('/dificuldades_usuarios/editar/{id}', 'DificuldadeUsuarioController@update')->name('dificuldades_usuarios.update');
 
     Route::get('/pesos', 'PesosController@index')->name('pesos.index');
-    Route::get('/estatisticas', 'EstatisticasController@index')->name('estatisticas.index');
+    Route::get('/estatisticas/jogadores/estados', 'EstatisticasController@jogadoresEstados')->name('estatisticas.jogadoresEstados');
+    Route::get('/estatisticas/jogadores/ranking', 'EstatisticasController@jogadoresRanking')->name('estatisticas.jogadoresRanking');
 });
 
 Auth::routes();

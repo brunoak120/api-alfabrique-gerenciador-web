@@ -149,7 +149,19 @@ return [
         [
             'text' => 'Estátisticas',
             'icon' => 'pie-chart',
-            'url'  => 'admin/estatisticas',
+            'submenu' => [
+                [
+                    'text' => 'Ranking Jogadores',
+                    'icon' => 'bar-chart',
+                    'url' => 'admin/estatisticas/jogadores/ranking',
+                ],
+                [
+                    'text' => 'Jogadores por Estado',
+                    'icon' => 'pie-chart',
+                    'url'  => 'admin/estatisticas/jogadores/estados',
+                ]
+            ]
+
         ],
         'Configurações Avançadas',
         [
