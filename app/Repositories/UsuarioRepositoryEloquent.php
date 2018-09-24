@@ -51,5 +51,21 @@ class UsuarioRepositoryEloquent extends BaseRepository implements UsuarioReposit
 
         return $resultado;
     }
+
+    public function retonaRankingUsuarios()
+    {
+        $admin = config('constants.ADMIN');
+
+        $resultado = $this->scopeQuery(function ($query) use ($admin) {
+            return $query
+                ->selectRaw("usuarios.nome, pontuacao")
+                ->whereRaw("nivel_acesso_id <> {$admin}")
+                ->orderBy("pontuacao", "desc")
+                ->orderBy("nome", "asc")
+                ->limit(10);
+        });
+
+        return $resultado;
+    }
     
 }

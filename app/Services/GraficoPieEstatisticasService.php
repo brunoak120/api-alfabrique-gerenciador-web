@@ -2,9 +2,7 @@
 
 namespace App\Services;
 
-use App\Repositories\ConfigRepository;
 use App\Repositories\UsuarioRepository;
-use Illuminate\Database\Eloquent\Collection;
 
 class GraficoPieEstatisticasService {
 
@@ -30,6 +28,55 @@ class GraficoPieEstatisticasService {
                 ]
             ])
             ->options([]);
+    }
+
+    public function retornaChartjsMediaJogadoresRanking() {
+        $usuarios = $this->retornaUsuariosRanking();
+        $datasets = $this->montaDataSet($usuarios);
+
+        return app()->chartjs
+            ->name('barChartTest')
+            ->type('bar')
+            ->size(['width' => 400, 'height' => 200])
+            ->datasets($datasets)
+            ->options(['legend' => [
+                'display' => true,
+                'labels' => [
+                    'fontColor' => '#000'
+                ]
+            ]]);
+
+    }
+
+    public function montaDataSet($usuarios) {
+        $datasets = [];
+
+        foreach ($usuarios as $index => $usuario) {
+            $rgba = $this->montaRGBA($index);
+
+            $temp = [
+                "label" => "{$usuario['nome']}",
+                'backgroundColor' => [$rgba],
+                'data' => [$usuario['pontuacao']]
+            ];
+
+            array_push($datasets, $temp);
+        }
+
+        return $datasets;
+
+    }
+
+    public function montaRGBA($num) {
+        $hash = md5('color' . $num); // modify 'color' to get a different palette
+
+        return 'rgba(' . hexdec(substr($hash, 0, 2))
+                        . ', ' . hexdec(substr($hash, 2, 2))
+                        . ', ' . hexdec(substr($hash, 4, 2)) . ')';
+    }
+
+    public function retornaUsuariosRanking() {
+        return $this->usuariosRepository->retonaRankingUsuarios()->all();
     }
 
     public function retornaDadosGraficoUsuariosEstados() {
